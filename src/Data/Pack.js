@@ -1,4 +1,4 @@
-data: {
+const data = {
     packs: [
         {
             id: 1,
@@ -41,6 +41,6 @@ data: {
         ]
         },
     ]
-        
-    
 }
+
+export default data;
