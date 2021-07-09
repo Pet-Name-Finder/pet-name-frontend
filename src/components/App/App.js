@@ -7,6 +7,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
+        <h1>Pet Name Finder</h1>
         {/* <Header />
         <Switch>
           <Route exact path="/">
