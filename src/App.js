@@ -1,9 +1,15 @@
 import './App.css';
+import { client } from "./ApolloClient/client";
+import { ApolloProvider } from '@apollo/client';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <Header />
+        
+      </div>
+    </ApolloProvider>
   );
 }
 
