@@ -1,5 +1,5 @@
 import './App.css';
-import { client } from "./ApolloClient/client";
+import { client } from "../../ApolloClient/client";
 import { ApolloProvider } from '@apollo/client';
 // import { Route, Switch, Link } from 'react-router-dom';
 
