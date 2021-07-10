@@ -3,7 +3,7 @@ const data = {
         {
             email: "PatrickRoy@email.com",
             id: 1,
-            likedNamed: [
+            likedNames: [
                 "Frank", "Bandit", "Bowser", "Daisy", "Gouda", "Mille"
             ],
             packs: [1, 2, 3]
@@ -11,7 +11,7 @@ const data = {
         {
             email: "JoeSakic@email.com",
             id: 2,
-            likedNamed: [
+            likedNames: [
                 "Daisy", "Gouda"
             ],
             packs: [2]
@@ -19,10 +19,12 @@ const data = {
         {
             email: "random@email.com",
             id: 3,
-            likedNamed: [
+            likedNames: [
                 "Blue", "Gouda", "Bouhda", "Daisy", "Mille"
             ],
             packs: [2, 3]
         }
     ]
 }
+
+export default data;
