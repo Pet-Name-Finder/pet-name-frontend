@@ -2,6 +2,8 @@ import React from 'react';
 import './ViewPacks.css';
 import data from '../../Data/Pack';
 import PackCard from '../PackCard/PackCard';
+import { NavLink } from 'react-router-dom';
+
 //temporary place for data while we decide we are making the api call for this data
 
 const ViewPacks = () => {
@@ -15,9 +17,11 @@ const ViewPacks = () => {
         )
     })
     return (
+      <NavLink to='/all-packs'>
         <main className='packs-container'>
             {displayCards}
         </main>
+      </NavLink>
     )
 }
 
