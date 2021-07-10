@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
 import ViewPacks from '../ViewPacks/ViewPacks';
+import Pack from '../Pack/Pack';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 class App extends Component {
@@ -34,6 +35,10 @@ class App extends Component {
               />
               <Route path="/viewPacks" render={() => {
                 return <ViewPacks />
+              }}
+              />
+              <Route path="/pack:id" render={() => {
+                return <Pack />
               }}
               />
               <Route path="*" render={() => {
