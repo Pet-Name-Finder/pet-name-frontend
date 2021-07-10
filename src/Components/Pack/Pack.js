@@ -8,6 +8,7 @@ class Pack extends Component {
     constructor() {
         super();
         this.state = {
+            pack: {},
             names: data.names,
             currentName: 0,
             votingDone: false
@@ -15,8 +16,9 @@ class Pack extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
-        console.log(id);
+        const id = parseInt(this.props.match.params.id);
+        const setPack = packData.packs.find(pack => pack.id === id);
+        this.setState({ pack: setPack});
     }
 
     upVote = (e) => {
