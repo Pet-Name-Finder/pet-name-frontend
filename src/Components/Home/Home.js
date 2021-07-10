@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import Header from '../Header/Header';
 import './Home.css';
 
 class Home extends Component {
@@ -13,9 +12,13 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
-        <Header />
-      </div>
+      <NavLink to='/'>
+        <div className="home">
+          <button className="view-packs-btn">View Your Packs</button>
+          <button className="start-pack-btn">Start New Pack</button>
+          <button className="start-lone-btn">Start as a Lone Wolf</button>
+        </div>
+      </NavLink>
     );
   }
 }
