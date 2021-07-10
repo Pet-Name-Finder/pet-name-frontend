@@ -12,7 +12,7 @@ class Pack extends Component {
     render() {
         return (
             <main className="pack">
-
+                <p>hello</p>
             </main>
         );
     }
