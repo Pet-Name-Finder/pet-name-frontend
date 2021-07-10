@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Pack.css';
 import data from '../../Data/Names';
+import packData from '../../Data/Pack';
+import { useParams, withRouter } from 'react-router-dom';
 
 class Pack extends Component {
     constructor() {
@@ -10,6 +12,11 @@ class Pack extends Component {
             currentName: 0,
             votingDone: false
         }
+    }
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        console.log(id);
     }
 
     upVote = (e) => {
@@ -44,4 +51,4 @@ class Pack extends Component {
     }
 }
 
-export default Pack;
+export default withRouter(Pack);
