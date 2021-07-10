@@ -28,10 +28,10 @@ class Login extends Component {
 
     if(!foundUser) {
       alert("Sorry no account found!");
+      this.clearInput();
     } else {
       this.props.setUser(foundUser);
     }
-    this.clearInput();
   }
 
   // componentDidMount() {
@@ -49,11 +49,9 @@ class Login extends Component {
         onChange={(event) => this.handleChange(event)}
       >
       </input>
-      <NavLink to="/">
-        <button
+      <NavLink to="/"><button
           onClick={(event) => this.searchInput(event)}>🐾 Login Now! 🐾
-        </button>
-      </NavLink>
+        </button></NavLink>
     </div>
   )
   }
