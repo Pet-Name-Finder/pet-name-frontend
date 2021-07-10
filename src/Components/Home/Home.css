@@ -5,11 +5,14 @@
   justify-content: center;
 }
 
-.view-packs-btn {
+.main-btn {
   border-radius: 6px;
-  background-color: #99CCFF;
-  color: #faf5f5;
-  width: 15em;
-  height: 3em;
+  width: 20em;
+  height: 6em;
+  font-size: 20px;
   font-weight: 600;
+}
+
+.view-packs-btn {
+  background-color: #99CCFF;
 }
