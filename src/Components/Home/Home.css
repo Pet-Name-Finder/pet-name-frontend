@@ -4,3 +4,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.view-packs-btn {
+  border-radius: 6px;
+  background-color: #99CCFF;
+  color: #faf5f5;
+  width: 15em;
+  height: 3em;
+  font-weight: 600;
+}
