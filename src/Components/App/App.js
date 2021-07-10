@@ -2,9 +2,10 @@ import './App.css';
 import React, { Component } from 'react';
 // import { client } from "./../ApolloClient/client";
 // import { ApolloProvider } from '@apollo/client';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
+import Home from '../Home/Home';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 class App extends Component {
@@ -23,9 +24,14 @@ class App extends Component {
           <div className='app-container'>
             <Switch>
               <Route exact path="/" render={() => {
-                <Login />
+                 return <Home />
                 }}
               />
+              <Route path="/login" render={() => {
+                return <Login />
+                }}
+              />
+
               <Route path="*" render={() => {
                 return <NotFoundPage />
                 }}
@@ -40,9 +46,12 @@ class App extends Component {
 
 export default App;
 
-//  <Route path="/home/:id">
-//   <Home />
-// </Route>
+// NEED TO SWAP PATHS FOR HOME && LOGIN
+// LOGIN SHOULD BE => exact path="/"
+// && HOME SHOULD BE => /home/:id
+// AND CHANGE NAVLINK IN BOTH FILES
+
+
 // <Route path="/pack/:id">
 //   <Pack />
 // </Route>
