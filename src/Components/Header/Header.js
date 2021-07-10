@@ -2,17 +2,26 @@ import React from 'react';
 import './Header.css';
 
 const Header = () => {
-  // First 3 buttons will be conditionally rendered for mobile view (hamburger)
+  // Hamburger will be conditionally rendered for mobile view
   return (
     <nav className='header'>
-      <button>View Your Packs</button>
-      <button>Start New Pack</button>
-      <button>Start as a Lone Wolf</button>
-      <button>Logout</button>
+      <div className='hamburger-menu'>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <h1 className='header-title'>Pet Name Finder</h1>
       <button>⭐️ View Liked Names ⭐️</button>
+      <button>Logout</button>
     </nav>
   )
 }
 
 export default Header;
+
+// Add to hamburger dropdown
+// <ul>
+//   <li><a href="#">View Your Packs</a></li>
+//   <li><a href="#">Start New Pack</a></li>
+//   <li><a href="#">Start as a Lone Wolf</a></li>
+// </ul>
