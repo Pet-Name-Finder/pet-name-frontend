@@ -2,7 +2,6 @@ import React from 'react';
 import './ViewPacks.css';
 import data from '../../Data/Pack';
 import PackCard from '../PackCard/PackCard';
-
 //temporary place for data while we decide we are making the api call for this data
 
 const ViewPacks = () => {
@@ -16,9 +15,11 @@ const ViewPacks = () => {
         )
     })
     return (
-      <main className='packs-container'>
-          {displayCards}
-      </main>
+      <NavLink to='/all-packs'>
+        <main className='packs-container'>
+            {displayCards}
+        </main>
+      </NavLink>
     )
 }
 
