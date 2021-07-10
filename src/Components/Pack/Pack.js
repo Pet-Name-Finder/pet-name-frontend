@@ -8,26 +8,36 @@ class Pack extends Component {
         this.state = {
             names: data.names,
             currentName: 0,
+            votingDone: false
         }
     }
 
     upVote = (e) => {
-
-        this.setState({ currentName: this.state.currentName + 1})
+        this.showNextName();
     }
 
     downVote = (e) => {
-        this.setState({ currentName: this.state.currentName + 1 })
+        this.showNextName();
+    }
+
+    showNextName = () => {
+        if (this.state.names.length > this.state.currentName + 1) {
+            this.setState({ currentName: this.state.currentName + 1 })
+        } 
+        if (this.state.names.length === this.state.currentName + 1) {
+            this.setState({ votingDone: true})
+        }
     }
 
     render() {
         return (
             <main className="pack">
-                <button onClick={() => this.downVote()}>Down Vote!</button>
+                {!this.state.votingDone && <section className="vote-block"><button onClick={() => this.downVote()}>Down Vote!</button>
                 <section>
                     <p>{this.state.names[this.state.currentName].name}</p>
                 </section>
-                <button onClick={() => this.upVote()}>Up Vote!</button>
+                <button onClick={() => this.upVote()}>Up Vote!</button></section> }
+                {this.state.votingDone && <p>Voting finished!</p>}
             </main>
         );
     }
