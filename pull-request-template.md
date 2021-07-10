@@ -3,9 +3,6 @@
 What's changed & where should the reviewer start?
 
 
-##### Relevant Screenshots/GIFs
-
-
 ### Fixes
 #### Type of change
 What is it?
