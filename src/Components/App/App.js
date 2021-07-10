@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
+import ViewPacks from '../ViewPacks/ViewPacks';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 class App extends Component {
@@ -31,7 +32,10 @@ class App extends Component {
                 return <Login />
                 }}
               />
-
+              <Route path="/viewPacks" render={() => {
+                return <ViewPacks />
+              }}
+              />
               <Route path="*" render={() => {
                 return <NotFoundPage />
                 }}
