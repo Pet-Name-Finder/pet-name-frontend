@@ -11,14 +11,23 @@ class Pack extends Component {
         }
     }
 
+    upVote = (e) => {
+
+        this.setState({ currentName: this.state.currentName + 1})
+    }
+
+    downVote = (e) => {
+        this.setState({ currentName: this.state.currentName + 1 })
+    }
+
     render() {
         return (
             <main className="pack">
-                <button>Down Vote!</button>
+                <button onClick={() => this.downVote()}>Down Vote!</button>
                 <section>
                     <p>{this.state.names[this.state.currentName].name}</p>
                 </section>
-                <button>Up Vote!</button>
+                <button onClick={() => this.upVote()}>Up Vote!</button>
             </main>
         );
     }
