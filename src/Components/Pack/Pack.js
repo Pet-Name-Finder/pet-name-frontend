@@ -23,7 +23,10 @@ class Pack extends Component {
 
     upVote = (e) => {
         this.showNextName();
-        //add upvoted names to both the packs liked names and the current users liked names
+        let updatePack = this.state.pack;
+        //just assuming the current users id will be 1 will need to be updated to look at current user id
+        const memberIndex = updatePack.members.findIndex(memeber => memeber.userId === 1);
+        updatePack.members[memberIndex].likedNames.push(this.state.names[this.state.currentName].name)
     }
 
     downVote = (e) => {
