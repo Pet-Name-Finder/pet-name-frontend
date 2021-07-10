@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <NavLink to='/'>
         <div className="home">
-          <button className="view-packs-btn">View Your Packs</button>
+          <NavLink to="/all-packs"><button className="view-packs-btn">View Your Packs</button></NavLink>
           <button className="start-pack-btn">Start New Pack</button>
           <button className="start-lone-btn">Start as a Lone Wolf</button>
         </div>
