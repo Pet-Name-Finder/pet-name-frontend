@@ -1,4 +1,4 @@
-mport './LikedNames.css';
+import './LikedNames.css';
 import React from 'react';
 
 export default function LikedNames({ likedNames }) {
