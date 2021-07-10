@@ -1,11 +1,13 @@
 import React from 'react';
 import './PackCard.css';
+import { Link } from 'react-router-dom';
 
-const PackCard = ({name}) => {
+const PackCard = ({name, pack }) => {
     return (
-        <section className='card'>
+        <Link className='card' to={`/pack:${pack.id}`}>
             <p>{name}</p>
-        </section>
+            <p>started!</p>
+        </Link>
     )
 }
 
