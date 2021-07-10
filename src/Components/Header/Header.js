@@ -14,8 +14,8 @@ const Header = () => {
       </div>
       <NavLink to='/'><button data-cy='home-button' className='home-button'>Take Me Back Home!</button></NavLink>
       <h1 className='header-title'>Pet Name Finder</h1>
-      <button>⭐️ View Liked Names ⭐️</button>
-      <button>Logout</button>
+      <NavLink to='/liked-names'><button data-cy='view-liked-button' className='view-liked-button'>⭐️ View Liked Names ⭐️</button></NavLink>
+      <NavLink to='/login'><button data-cy='login-button' className='login-button'>Login/Logout</button></NavLink>
     </nav>
   )
 }
