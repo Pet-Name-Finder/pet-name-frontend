@@ -25,12 +25,16 @@ class App extends Component {
 
   setUser = (user) => {
     this.setState({ currentUser: user });
-    this.setState({ loggedIn: false })
+    this.setState({ likedNames: user.likedNames });
+    this.setState({ allPacks: user.packs });
+    this.setState({ loggedIn: true })
   }
 
-  setLikedNames = ({ currentUser }) => {
-    let foundLiked = currentUser.likedNames;
-    this.setState({ currentUser: foundLiked });
+  logoutUser = () => {
+    this.setState({ currentUser: null });
+    this.setState({ likedNames: [] });
+    this.setState({ allPacks: [] });
+    this.setState({ loggedIn: false });
   }
 
   // componentDidMount() {
@@ -38,11 +42,13 @@ class App extends Component {
   // }
 
   render() {
-    console.log("CURRENT USER", this.state.currentUser)
     return (
       <>
         <div className="App">
-          <Header />
+          <Header
+            loggedIn={this.state.loggedIn}
+            logoutUser={this.logoutUser}
+          />
           <div className='app-container'>
             <Switch>
               <Route exact path="/" render={() => {
@@ -56,7 +62,9 @@ class App extends Component {
                 }}
               />
               <Route path="/all-packs" render={() => {
-                return <ViewPacks />
+                return <ViewPacks
+                  allPacks={this.state.allPacks}
+                />
                 }}
               />
               <Route path="/liked-names" render={() => {
