@@ -2,9 +2,11 @@ import React from 'react';
 import './ViewPacks.css';
 import data from '../../Data/Pack';
 import PackCard from '../PackCard/PackCard';
+
 //temporary place for data while we decide we are making the api call for this data
 
-const ViewPacks = () => {
+const ViewPacks = ({ allPacks }) => {
+  // Now we can add matching or something for just their specific packs
     const displayCards = data.packs.map(pack => {
         return (
             <PackCard
@@ -15,11 +17,9 @@ const ViewPacks = () => {
         )
     })
     return (
-      <NavLink to='/all-packs'>
-        <main className='packs-container'>
-            {displayCards}
-        </main>
-      </NavLink>
+      <main className='packs-container'>
+          {displayCards}
+      </main>
     )
 }
 
