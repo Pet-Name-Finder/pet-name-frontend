@@ -14,6 +14,7 @@ class Pack extends Component {
 
     upVote = (e) => {
         this.showNextName();
+        //add upvoted names to both the packs liked names and the current users liked names
     }
 
     downVote = (e) => {
