@@ -12,13 +12,11 @@ class Home extends Component {
 
   render() {
     return (
-      <NavLink to='/'>
-        <div className="home">
-          <NavLink to="/all-packs"><button className="view-packs-btn">View Your Packs</button></NavLink>
-          <button className="start-pack-btn">Start New Pack</button>
-          <button className="start-lone-btn">Start as a Lone Wolf</button>
-        </div>
-      </NavLink>
+      <div className="home">
+        <NavLink to="/all-packs"><button className="main-btn view-packs-btn">View Your Packs</button></NavLink>
+        <button className="main-btn start-pack-btn">Start New Pack</button>
+        <button className="main-btn start-lone-btn">Start as a Lone Wolf</button>
+      </div>
     );
   }
 }
