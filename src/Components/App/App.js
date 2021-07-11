@@ -70,6 +70,12 @@ class App extends Component {
                 />
                 }}
               />
+              <Route path="/pack:id" render={() => {
+                return <Pack
+                  user={this.state.currentUser}
+                />
+              }}
+              />
               <Route path="*" render={() => {
                 return <NotFoundPage />
                 }}
