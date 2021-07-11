@@ -22,9 +22,7 @@ class Login extends Component {
 
   searchInput = (event) => {
     event.preventDefault();
-    let foundUser = this.state.allUsers.find(user => {
-      return user.email === this.state.emailInput
-    });
+    let foundUser = this.state.allUsers.find(user => user.email === this.state.emailInput);
 
     if(!foundUser) {
       alert("Sorry no account found!");
