@@ -1,8 +1,7 @@
 import './LikedNames.css';
 import React from 'react';
 
-export default function LikedNames({ likedNames }) {
-
+const LikedNames = ({ likedNames }) => {
   const mappedNames = likedNames.map((name) => {
     return (
       <li>{name}</li>
@@ -20,3 +19,5 @@ export default function LikedNames({ likedNames }) {
     </>
   )
 }
+
+export default LikedNames;
