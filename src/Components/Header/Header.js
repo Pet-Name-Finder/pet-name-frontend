@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ loggedIn, logoutUser }) => {
   // Hamburger will be conditionally rendered for mobile view
   return (
     <nav className='header'>
@@ -10,9 +11,19 @@ const Header = () => {
         <span></span>
         <span></span>
       </div>
+      <NavLink to='/'><button data-cy='home-button' className='home-button'>Take Me Back Home!</button></NavLink>
       <h1 className='header-title'>Pet Name Finder</h1>
-      <button>⭐️ View Liked Names ⭐️</button>
-      <button>Logout</button>
+      <NavLink to='/liked-names'><button data-cy='view-liked-button' className='view-liked-button'>⭐️ View Liked Names ⭐️</button></NavLink>
+      {!loggedIn &&
+      <NavLink to='/login'><button data-cy='login-button' className='login-button'>Login</button></NavLink>
+      }
+      {loggedIn &&
+      <button
+        data-cy='login-button'
+        className='login-button'
+        onClick={(event) => logoutUser(event)}
+      >Logout</button>
+      }
     </nav>
   )
 }
