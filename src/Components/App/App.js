@@ -40,7 +40,10 @@ class App extends Component {
     return (
       <>
         <div className="App">
-          <Header />
+          <Header
+            loggedIn={this.state.loggedIn}
+            logoutUser={this.logoutUser}
+          />
           <div className='app-container'>
             <Switch>
               <Route exact path="/" render={() => {
@@ -48,16 +51,22 @@ class App extends Component {
                 }}
               />
               <Route path="/login" render={() => {
-                return <Login />
+                return <Login
+                  setUser={this.setUser}
+                />
+               }}
+              />
+              <Route path="/all-packs" render={() => {
+                return <ViewPacks
+                  allPacks={this.state.allPacks}
+                />
                 }}
               />
-              <Route path="/viewPacks" render={() => {
-                return <ViewPacks />
-              }}
-              />
-              <Route path="/pack:id" render={() => {
-                return <Pack />
-              }}
+              <Route path="/liked-names" render={() => {
+                return <LikedNames
+                  likedNames={this.state.likedNames}
+                />
+                }}
               />
               <Route path="*" render={() => {
                 return <NotFoundPage />
@@ -73,12 +82,9 @@ class App extends Component {
 
 export default App;
 
-// NEED TO SWAP PATHS FOR HOME && LOGIN
-// LOGIN SHOULD BE => exact path="/"
-// && HOME SHOULD BE => /home/:id
-// AND CHANGE NAVLINK IN BOTH FILES
 
 
-// <Route path="/pack/:id">
-//   <Pack />
-// </Route>
+// <Route path="/pack:id" render={() => {
+//   return <Pack />
+// }}
+// />
