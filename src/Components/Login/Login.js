@@ -54,5 +54,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-//  currentUser: this.props.currentUser
