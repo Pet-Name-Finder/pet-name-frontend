@@ -6,7 +6,8 @@ const data = {
             owner: 1,
             members:[{
                 userId: 1,
-                likedNames: ["Frank", "Bandit", "Bowser"]
+                likedNames: ["Frank", "Bandit", "Bowser"],
+                currentName: 4
             }]
         },
         {
@@ -15,15 +16,18 @@ const data = {
             owner: 2,
             members: [{
                 userId: 2,
-                likedNames: ["Daisy", "Gouda"]
+                likedNames: ["Daisy", "Gouda"],
+                currentName: 1
             }, 
             {
                 userId: 1,
-                likedNames: ["Daisy", "Gouda"]
+                likedNames: ["Daisy", "Gouda"],
+                currentName: 8
             },
             {
                 userId: 3,
-                likedNames: ["Blue", "Gouda"]
+                likedNames: ["Blue", "Gouda"],
+                currentName: 5
             }]
         },
         {
@@ -32,11 +36,13 @@ const data = {
             owner: 1,
             members: [{
                 userId: 1,
-                likedNames: ["Frank", "Daisy", "Mille"]
+                likedNames: ["Frank", "Daisy", "Mille"],
+                currentName: 5
             },
             {
                 userId: 3,
-                likedNames: ["Bouhda", "Daisy", "Mille"]
+                likedNames: [],
+                currentName: 0
             },
         ]
         },
