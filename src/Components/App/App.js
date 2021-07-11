@@ -7,7 +7,9 @@ import Login from '../Login/Login';
 import Home from '../Home/Home';
 import ViewPacks from '../ViewPacks/ViewPacks';
 import Pack from '../Pack/Pack';
+import LikedNames from '../LikedNames/LikedNames';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import userData from '../../Data/User';
 import './App.css';
 
 class App extends Component {
