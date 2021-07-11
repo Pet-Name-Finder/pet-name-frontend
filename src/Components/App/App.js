@@ -1,4 +1,3 @@
-import './App.css';
 import React, { Component } from 'react';
 // import { client } from "./../ApolloClient/client";
 // import { ApolloProvider } from '@apollo/client';
@@ -7,8 +6,8 @@ import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
 import ViewPacks from '../ViewPacks/ViewPacks';
-import Pack from '../Pack/Pack';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -33,13 +32,9 @@ class App extends Component {
                 return <Login />
                 }}
               />
-              <Route path="/viewPacks" render={() => {
+              <Route path="/all-packs" render={() => {
                 return <ViewPacks />
-              }}
-              />
-              <Route path="/pack:id" render={() => {
-                return <Pack />
-              }}
+                }}
               />
               <Route path="*" render={() => {
                 return <NotFoundPage />
