@@ -19,4 +19,14 @@ describe('Show main view of Pet Name Finder App', () => {
       .get('.header').find('[data-cy=login-button]').should('contain', 'Login')
   });
 
+  it('Should display the default page pack buttons', () => {
+    cy.get('.home').find('.view-packs-btn').should('be.visible')
+      .get('.home').find('[data-cy=view-packs-btn]').should('contain', 'View Your Packs')
+      .get('.home').find('.start-pack-btn').should('be.visible')
+      .get('.home').find('[data-cy=start-pack-btn]').should('contain', 'Start New Pack')
+      .get('.home').find('.start-lone-btn').should('be.visible')
+      .get('.home').find('[data-cy=start-lone-btn]').should('contain', 'Start as a Lone Wolf')
+  });
+
+
 });
