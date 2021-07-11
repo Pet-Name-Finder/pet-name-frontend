@@ -22,6 +22,13 @@ class App extends Component {
       }
   }
 
+  setUser = (user) => {
+    this.setState({ currentUser: user });
+    this.setState({ likedNames: user.likedNames });
+    this.setState({ allPacks: user.packs });
+    this.setState({ loggedIn: true })
+  }
+
   render() {
     return (
       <>
