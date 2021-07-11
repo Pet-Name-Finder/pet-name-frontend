@@ -39,7 +39,14 @@ class App extends Component {
   }
 
   addUpVotted = (name) => {
-    console.log(name)
+    //temp solution while you can move around the app while not logged in
+    if(this.state.currentUser) {
+      const nameFound = this.state.currentUser.likedNames.find(userName => name === userName)
+      console.log(nameFound);
+      if(!nameFound) {
+        this.state.currentUser.likedNames.push(name);
+      }
+    }
   }
 
   render() {
