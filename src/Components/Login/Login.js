@@ -34,10 +34,6 @@ class Login extends Component {
     }
   }
 
-  // componentDidMount() {
-  //
-  // }
-
   render() {
   return (
     <div className="login">
