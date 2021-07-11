@@ -12,4 +12,11 @@ describe('Show main view of Pet Name Finder App', () => {
     cy.get('nav > .header-title').should('contain', 'Pet Name Finder')
   });
 
+  it('Should display the Liked Names and Login buttons', () => {
+    cy.get('.header').find('.view-liked-button').should('be.visible')
+      .get('.header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
+      .get('.header').find('.login-button').should('be.visible')
+      .get('.header').find('[data-cy=login-button]').should('contain', 'Login')
+  });
+
 });
