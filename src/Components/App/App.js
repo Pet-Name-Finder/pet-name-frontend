@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 // import { client } from "./../ApolloClient/client";
 // import { ApolloProvider } from '@apollo/client';
 import { Route, Switch } from 'react-router-dom';
@@ -9,7 +10,6 @@ import ViewPacks from '../ViewPacks/ViewPacks';
 import LikedNames from '../LikedNames/LikedNames';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import userData from '../../Data/User';
-import './App.css';
 
 class App extends Component {
   constructor() {
@@ -39,6 +39,7 @@ class App extends Component {
 
   // componentDidMount() {
   //
+  // 
   // }
 
   render() {
