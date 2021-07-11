@@ -16,9 +16,22 @@ class Pack extends Component {
     }
 
     componentDidMount() {
+        this.setPack();
+    }
+
+    setPack = () => {
         const id = parseInt(this.props.match.params.id);
         const setPack = packData.packs.find(pack => pack.id === id);
-        this.setState({ pack: setPack});
+        this.setCurrentName(setPack);
+        this.setState({ pack: setPack });
+    }
+
+    setCurrentName = (setPack) => {
+        //again temp fix while you can move around the app while not logged in
+        if(this.props.user) {
+            const memberIndex = setPack.members.findIndex(memeber => memeber.userId === this.props.user.id);
+            this.setState({ currentName: setPack.members[memberIndex].currentName});
+        }
     }
 
     addVotePack = () => {
