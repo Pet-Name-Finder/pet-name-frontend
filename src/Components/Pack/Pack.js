@@ -37,6 +37,7 @@ class Pack extends Component {
 
     upVote = (e) => {
         this.addVotePack();
+        this.props.addVoteUser(this.state.names[this.state.currentName].name)
         this.showNextName();
     }
 
