@@ -1,4 +1,3 @@
-import './App.css';
 import React, { Component } from 'react';
 // import { client } from "./../ApolloClient/client";
 // import { ApolloProvider } from '@apollo/client';
@@ -9,12 +8,17 @@ import Home from '../Home/Home';
 import ViewPacks from '../ViewPacks/ViewPacks';
 import Pack from '../Pack/Pack';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import './App.css';
 
 class App extends Component {
   constructor() {
     super();
       this.state = {
-
+        allUsers: userData.users,
+        currentUser: null,
+        likedNames: [],
+        allPacks: [],
+        loggedIn: false
       }
   }
 
