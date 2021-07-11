@@ -21,11 +21,23 @@ class Pack extends Component {
         this.setState({ pack: setPack});
     }
 
+    addVotePack = () => {
+        if(this.props.user) {
+            let updatePack = this.state.pack;
+            const memberIndex = updatePack.members.findIndex(memeber => memeber.userId === this.props.user.id);
+            updatePack.members[memberIndex].likedNames.push(this.state.names[this.state.currentName].name);
+        } else {
+            //temp while we can move around the app while not logged in
+            let updatePack = this.state.pack;
+            const memberIndex = updatePack.members.findIndex(memeber => memeber.userId === 1);
+            updatePack.members[memberIndex].likedNames.push(this.state.names[this.state.currentName].name);
+        }
+
+    }
+
     upVote = (e) => {
+        this.addVotePack();
         this.showNextName();
-        let updatePack = this.state.pack;
-        const memberIndex = updatePack.members.findIndex(memeber => memeber.userId === this.props.user.id);
-        updatePack.members[memberIndex].likedNames.push(this.state.names[this.state.currentName].name)
     }
 
     downVote = (e) => {
