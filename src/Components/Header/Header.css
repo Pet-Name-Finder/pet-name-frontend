@@ -11,6 +11,11 @@ span {
   justify-content: center;
 }
 
+.header-title {
+   font-family: 'Otomanopee One',
+   sans-serif;
+}
+
 .hamburger-menu {
   width: 1.5em;
   height: 1.5em;
