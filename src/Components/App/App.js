@@ -29,6 +29,13 @@ class App extends Component {
     this.setState({ loggedIn: true })
   }
 
+  logoutUser = () => {
+    this.setState({ currentUser: null });
+    this.setState({ likedNames: [] });
+    this.setState({ allPacks: [] });
+    this.setState({ loggedIn: false });
+  }
+
   render() {
     return (
       <>
