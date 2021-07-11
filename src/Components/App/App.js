@@ -38,6 +38,10 @@ class App extends Component {
     this.setState({ loggedIn: false });
   }
 
+  addUpVotted = (name) => {
+    console.log(name)
+  }
+
   render() {
     return (
       <>
@@ -73,6 +77,7 @@ class App extends Component {
               <Route path="/pack:id" render={() => {
                 return <Pack
                   user={this.state.currentUser}
+                  addVoteUser={this.addUpVotted}
                 />
               }}
               />
