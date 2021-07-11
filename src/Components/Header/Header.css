@@ -11,6 +11,10 @@ span {
   justify-content: center;
 }
 
+.logo {
+  height: 4rem;
+}
+
 .header-title {
    font-family: 'Otomanopee One',
    sans-serif;
