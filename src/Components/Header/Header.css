@@ -9,15 +9,19 @@ span {
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 100%;
 }
 
 .logo {
-  height: 4rem;
+  height: 95%;
 }
 
 .header-title {
-   font-family: 'Otomanopee One',
-   sans-serif;
+  margin: 0;
+  font-family: 'Otomanopee One', sans-serif;
+  font-size: 2.5rem;
 }
 
 .hamburger-menu {
