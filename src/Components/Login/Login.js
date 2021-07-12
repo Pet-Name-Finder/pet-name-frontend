@@ -35,15 +35,19 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        <h1 className="login-header">Pet Name Finder</h1>
+        <h1 className="login-header">Pet Name Finder Login</h1>
+        <label htmlFor="email">Email</label>
         <input
           className="login-input"
+          id="email"
+          type="email"
           placeholder="Email"
           value={this.state.searchInput}
           onChange={(event) => this.handleChange(event)}
         >
         </input>
         <NavLink to="/"><button
+            className="login-now-btn"
             onClick={(event) => this.searchInput(event)}>🐾 Login Now! 🐾
           </button></NavLink>
       </div>

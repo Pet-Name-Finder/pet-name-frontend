@@ -8,7 +8,20 @@ span {
 
 .header {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  align-items: center;
+  height: 5rem;
+  width: 100%;
+}
+
+.logo {
+  height: 5rem;
+}
+
+.header-title {
+  margin: 0;
+  font-family: 'Otomanopee One', sans-serif;
+  font-size: 2.5rem;
 }
 
 .hamburger-menu {
@@ -16,6 +29,11 @@ span {
   height: 1.5em;
   padding: 1.5em;
   text-align: center;
+}
+
+.button-container {
+  display: flex;
+  margin-left: auto;
 }
 
 .view-liked-button,
@@ -26,4 +44,11 @@ span {
   height: 4em;
   font-size: .9em;
   font-weight: 600;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 480px) {
+  .hamburger-menu {
+    display: none;
+  }
 }
