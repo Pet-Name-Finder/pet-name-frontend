@@ -50,6 +50,21 @@ class App extends Component {
     }
   }
 
+  updateCurrentName = (packId) => {
+    const updatedPacks = this.state.allPacks.map(pack => {
+      if(pack.id === packId) {
+        const updatedSinglePack = pack.members.map(member => {
+          if(member.userId === this.state.currentUser.id) {
+            member.currentName = member.currentName + 1; 
+          }
+          return member
+        })
+      }
+      return pack;
+    })
+    this.setState({ allPacks: updatedPacks});
+  }
+
   render() {
     return (
       <>
@@ -86,6 +101,8 @@ class App extends Component {
                 return <Pack
                   user={this.state.currentUser}
                   addVoteUser={this.addUpVotted}
+                  packs={this.state.allPacks}
+                  updateCurrentName={this.updateCurrentName}
                 />
               }}
               />
