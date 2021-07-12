@@ -30,10 +30,8 @@ class Pack extends Component {
 
     checkVote = (currentName) => {
         if (this.state.names.length >= currentName + 1) {
-            console.log("Im here");
             this.setState({ votingDone: false });
-        }
-        
+        }  
     }
 
     setCurrentName = (setPack) => {
