@@ -44,6 +44,7 @@ class Login extends Component {
         >
         </input>
         <NavLink to="/"><button
+            className="login-btn"
             onClick={(event) => this.searchInput(event)}>🐾 Login Now! 🐾
           </button></NavLink>
       </div>
