@@ -4,7 +4,7 @@ import data from '../../Data/Pack';
 import PackCard from '../PackCard/PackCard';
 //temporary place for data while we decide we are making the api call for this data
 
-const ViewPacks = ({ allPacks }) => {
+const ViewPacks = ({ usersPacks }) => {
   // Now we can add matching or something for just their specific packs
     const displayCards = data.packs.map(pack => {
         return (

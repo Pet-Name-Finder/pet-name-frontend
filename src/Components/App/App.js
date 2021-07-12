@@ -10,6 +10,7 @@ import Pack from '../Pack/Pack';
 import LikedNames from '../LikedNames/LikedNames';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import userData from '../../Data/User';
+import packData from '../../Data/Pack';
 import './App.css';
 
 class App extends Component {
@@ -19,22 +20,23 @@ class App extends Component {
         allUsers: userData.users,
         currentUser: null,
         likedNames: [],
-        allPacks: [],
-        loggedIn: false
+        usersPacks: [],
+        loggedIn: false,
+        allPacks: packData.packs
       }
   }
 
   setUser = (user) => {
     this.setState({ currentUser: user });
     this.setState({ likedNames: user.likedNames });
-    this.setState({ allPacks: user.packs });
+    this.setState({ usersPacks: user.packs });
     this.setState({ loggedIn: true })
   }
 
   logoutUser = () => {
     this.setState({ currentUser: null });
     this.setState({ likedNames: [] });
-    this.setState({ allPacks: [] });
+    this.setState({ usersPacks: [] });
     this.setState({ loggedIn: false });
   }
 
@@ -70,7 +72,7 @@ class App extends Component {
               />
               <Route path="/all-packs" render={() => {
                 return <ViewPacks
-                  allPacks={this.state.allPacks}
+                  usersPacks={this.state.usersPacks}
                 />
                 }}
               />
