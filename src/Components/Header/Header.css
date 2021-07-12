@@ -8,14 +8,14 @@ span {
 
 .header {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 5rem;
   width: 100%;
 }
 
 .logo {
-  height: 95%;
+  height: 5rem;
 }
 
 .header-title {
@@ -31,6 +31,11 @@ span {
   text-align: center;
 }
 
+.button-container {
+  display: flex;
+  margin-left: auto;
+}
+
 .view-liked-button,
 .login-button {
   border-radius: 6px;
@@ -39,4 +44,10 @@ span {
   height: 4em;
   font-size: .9em;
   font-weight: 600;
+}
+
+@media screen and (min-width: 480px) {
+  .hamburger-menu {
+    display: none;
+  }
 }
