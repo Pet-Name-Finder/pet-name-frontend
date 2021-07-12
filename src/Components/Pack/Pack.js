@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Pack.css';
 import data from '../../Data/Names';
-import packData from '../../Data/Pack';
+//import packData from '../../Data/Pack';
 import { useParams, withRouter } from 'react-router-dom';
 
 class Pack extends Component {
@@ -11,7 +11,7 @@ class Pack extends Component {
             pack: {},
             names: data.names,
             currentName: 0,
-            votingDone: false
+            votingDone: true
         }
     }
 
@@ -21,15 +21,26 @@ class Pack extends Component {
 
     setPack = () => {
         const id = parseInt(this.props.match.params.id);
-        const setPack = packData.packs.find(pack => pack.id === id);
+       // const setPack = packData.packs.find(pack => pack.id === id);
+        const setPack = this.props.packs.find(pack => pack.id === id);
         this.setCurrentName(setPack);
         this.setState({ pack: setPack });
+        this.checkVote(setPack);
+    }
+
+    checkVote = (currentName) => {
+        if (this.state.names.length >= currentName + 1) {
+            console.log("Im here");
+            this.setState({ votingDone: false });
+        }
+        
     }
 
     setCurrentName = (setPack) => {
         //again temp fix while you can move around the app while not logged in
         if(this.props.user) {
             const memberIndex = setPack.members.findIndex(memeber => memeber.userId === this.props.user.id);
+            this.checkVote(setPack.members[memberIndex].currentName)
             this.setState({ currentName: setPack.members[memberIndex].currentName});
         }
     }
@@ -65,6 +76,7 @@ class Pack extends Component {
         if (this.state.names.length === this.state.currentName + 1) {
             this.setState({ votingDone: true})
         }
+        this.props.updateCurrentName(this.state.pack.id);
     }
 
     render() {
