@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
@@ -71,7 +72,7 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <ApolloProvider client={client}>
         <div className="App">
           <Header
             loggedIn={this.state.loggedIn}
@@ -117,7 +118,7 @@ class App extends Component {
             </Switch>
           </div>
         </div>
-      </>
+      </ApolloProvider>
     );
   }
 }
