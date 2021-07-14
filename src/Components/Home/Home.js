@@ -2,19 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Home.css';
 
-import {gql} from 'apollo-boost';
 import { graphql } from 'react-apollo';
-
-const getTempInfo = gql`
-  query {
-    episodesByIds(ids: [1, 2]) {
-      name
-      characters {
-        name
-      }
-    }
-  }
-`
+import { getTempInfo } from '../../Queries/queries';
 
 class Home extends Component {
   constructor() {
@@ -25,7 +14,7 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div className="home">
         <NavLink to="/all-packs"><button data-cy="view-packs-btn" className="main-btn view-packs-btn">View Your Packs</button></NavLink>
