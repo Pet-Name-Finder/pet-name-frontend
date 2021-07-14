@@ -15,7 +15,7 @@ import './App.css';
 
 const client = new ApolloClient({
   //temp uri tell we know where we will be making call
-  uri: 'http://graphql.org/swapi-graphql'
+  uri: 'https://rickandmortyapi.com/graphql'
 })
 
 class App extends Component {
