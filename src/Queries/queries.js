@@ -11,4 +11,14 @@ const getTempInfo = gql`
   }
 `
 
+const getAllUsersQuery = gql`
+  user {
+      id
+      email
+      userPacks {
+          id
+      }
+  }
+`
+
 export {getTempInfo}
