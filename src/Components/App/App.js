@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import { client } from "./../ApolloClient/client";
-// import { ApolloProvider } from '@apollo/client';
+import ApolloClient from 'apollo-boost';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
@@ -12,6 +11,11 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import userData from '../../Data/User';
 import packData from '../../Data/Pack';
 import './App.css';
+
+const client = new ApolloClient({
+  //temp uri tell we know where we will be making call
+  uri: 'http://graphql.org/swapi-graphql'
+})
 
 class App extends Component {
   constructor() {
