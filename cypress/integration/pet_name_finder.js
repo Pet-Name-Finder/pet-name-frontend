@@ -1,18 +1,21 @@
 describe('Show main view of Pet Name Finder App', () => {
 
-  beforeEach(() => {
-    cy.visit('http://localhost:3000')
-  });
+  // beforeEach(() => {
+  //   cy.visit('http://localhost:3000')
+  // });
 
   it('Should be able to visit the main page', () => {
+    cy.visit('http://localhost:3000')
     cy.url().should('eq', 'http://localhost:3000/')
   });
 
   it('Should display the title and subtitle of the page upon loading', () => {
+    cy.visit('http://localhost:3000')
     cy.get('nav > .header-title').should('contain', 'Pet Name Finder')
   });
 
   it('Should display the Liked Names and Login buttons', () => {
+    cy.visit('http://localhost:3000')
     cy.get('.header').find('.view-liked-button').should('be.visible')
       .get('.header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
       .get('.header').find('.login-button').should('be.visible')
@@ -20,6 +23,7 @@ describe('Show main view of Pet Name Finder App', () => {
   });
 
   it('Should display the default page pack buttons', () => {
+    cy.visit('http://localhost:3000')
     cy.get('.home').find('.view-packs-btn').should('be.visible')
       .get('.home').find('[data-cy=view-packs-btn]').should('contain', 'View Your Packs')
       .get('.home').find('.start-pack-btn').should('be.visible')
