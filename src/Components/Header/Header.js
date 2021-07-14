@@ -11,33 +11,19 @@ const Header = ({ loggedIn, logoutUser }) => {
         <span></span>
         <span></span>
       </div>
-      <Link to="/">
-        <img src="./pet.png" alt="Pet Name Finder logo" className="logo"></img>
-      </Link>
-      <h1 className="header-title">Pet Name Finder</h1>
-      <div className="button-container">
-        <NavLink to="/liked-names">
-          <button data-cy="view-liked-button" className="view-liked-button">
-            ⭐️ View Liked Names ⭐️
-          </button>
-        </NavLink>
-        {!loggedIn && (
-          <NavLink to="/login">
-            <button data-cy="login-button" className="login-button">
-              Login
-            </button>
-          </NavLink>
-        )}
-        {loggedIn && (
-          <button
-            data-cy="login-button"
-            className="login-button"
-            onClick={(event) => logoutUser(event)}
-          >
-            Logout
-          </button>
-        )}
-      </div>
+      <NavLink to='/'><button data-cy='home-button' className='home-button'>Take Me Back Home!</button></NavLink>
+      <h1 className='header-title'>Pet Name Finder</h1>
+      <NavLink to='/liked-names'><button data-cy='view-liked-button' className='view-liked-button'>⭐️ View Liked Names ⭐️</button></NavLink>
+      {!loggedIn &&
+      <NavLink to='/login'><button data-cy='login-button' className='login-button'>Login</button></NavLink>
+      }
+      {loggedIn &&
+      <button
+        data-cy='logout-button'
+        className='login-button'
+        onClick={(event) => logoutUser(event)}
+      >Logout</button>
+      }
     </nav>
   );
 };
