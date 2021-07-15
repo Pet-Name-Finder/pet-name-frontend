@@ -12,6 +12,8 @@ header {
   align-items: center;
   height: 5rem;
   width: 100%;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid white;
 }
 
 .logo {
@@ -33,7 +35,9 @@ header {
 
 .button-container {
   display: flex;
-  margin-left: auto;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .view-liked-button,
