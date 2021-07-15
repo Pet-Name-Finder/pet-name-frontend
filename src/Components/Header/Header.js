@@ -16,7 +16,7 @@ const Header = ({ loggedIn, logoutUser }) => {
         <h1 className='header-title'>Pet Name Finder</h1>
       </Link>
       <div className="button-container">
-        <NavLink to='/liked-names'><button data-cy='view-liked-button' className='view-liked-button'>⭐️ View Liked Names ⭐️</button></NavLink>
+        <NavLink to='/liked-names'><button data-cy='view-liked-button' className='view-liked-button'>View ⭐️Liked⭐️ Names</button></NavLink>
         {!loggedIn &&
         <NavLink to='/login'><button data-cy='login-button' className='login-button'>Login</button></NavLink>
         }

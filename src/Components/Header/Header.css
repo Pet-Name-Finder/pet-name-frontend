@@ -30,6 +30,23 @@ header {
   margin: 0;
   font-family: 'Otomanopee One', sans-serif;
   font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: 800;
+  color: white;
+  overflow: hidden;
+  background: linear-gradient(to right, #57C8CD, #E686EE 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+.header-title:hover {
+  background-position: 0 100%;
 }
 
 .hamburger-menu {
@@ -55,6 +72,11 @@ header {
   font-size: .9em;
   font-weight: 600;
   cursor: pointer;
+}
+
+.view-liked-button:hover,
+.login-button:hover {
+  background-color: #1F5859;
 }
 
 @media screen and (min-width: 480px) {
