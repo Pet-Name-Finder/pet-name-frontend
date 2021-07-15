@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = ({ loggedIn, logoutUser }) => {
   // Hamburger will be conditionally rendered for mobile view
   return (
-    <nav className="header">
+    <header>
       <div className="hamburger-menu">
         <span></span>
         <span></span>
@@ -24,7 +24,7 @@ const Header = ({ loggedIn, logoutUser }) => {
         onClick={(event) => logoutUser(event)}
       >Logout</button>
       }
-    </nav>
+    </header>
   );
 };
 
