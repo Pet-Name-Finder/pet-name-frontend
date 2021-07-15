@@ -1,15 +1,5 @@
 import {gql} from 'apollo-boost';
 
-// const getTempInfo = gql`
-//   query {
-//     episodesByIds(ids: [1, 2]) {
-//       name
-//       characters {
-//         name
-//       }
-//     }
-//   }
-// `
 
 const getPetNamesQuery = gql`
     {
@@ -19,14 +9,6 @@ const getPetNamesQuery = gql`
     }
 `
 
-// const getAllUsersQuery = gql`
-//   user {
-//       id
-//       email
-//       userPacks {
-//           id
-//       }
-//   }
-// `
-
 export { getPetNamesQuery}
+
+//pack id, user id, likednames[], currentIndex
