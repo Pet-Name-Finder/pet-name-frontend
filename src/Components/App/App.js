@@ -57,7 +57,7 @@ class App extends Component {
   updateCurrentName = (packId) => {
     const updatedPacks = this.state.allPacks.map(pack => {
       if(pack.id === packId) {
-        const updatedSinglePack = pack.members.map(member => {
+        pack.members.map(member => {
           if(member.userId === this.state.currentUser.id) {
             member.currentName = member.currentName + 1; 
           }
