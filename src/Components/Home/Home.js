@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Home.css';
 
 import { graphql } from 'react-apollo';
-import { getTempInfo } from '../../Queries/queries';
+import { getPetNamesQuery} from '../../Queries/queries';
 
 class Home extends Component {
   constructor() {
@@ -25,4 +25,4 @@ class Home extends Component {
   }
 }
 
-export default graphql(getTempInfo)(Home);
+export default graphql(getPetNamesQuery)(Home);

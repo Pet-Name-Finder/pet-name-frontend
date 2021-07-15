@@ -14,9 +14,7 @@ import packData from '../../Data/Pack';
 import './App.css';
 
 const client = new ApolloClient({
-  //temp uri tell we know where we will be making call
-  //http://pet-name-finder-be.herokuapp.com/
-  uri: 'https://rickandmortyapi.com/graphql'
+  uri: "https://pet-name-finder-be.herokuapp.com/graphql"
 })
 
 class App extends Component {
