@@ -13,7 +13,7 @@ const LikedNames = ({ likedNames }) => {
   return (
     <div className="liked-names">
       <h2>Your Liked Names:</h2>
-      <ul>
+      <ul className="bullet-container">
         {mappedNames}
       </ul>
     </div>
