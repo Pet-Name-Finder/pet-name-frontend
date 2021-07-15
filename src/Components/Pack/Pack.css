@@ -1,7 +1,33 @@
 .pack {
+    padding-top: 5em;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .vote-block {
     display: flex;
+}
+
+.current-name {
+    font-size: 64px;
+    /* padding: 1em; */
+    text-align: center;
+    min-width: 250px;
+}
+
+.up-paw {
+    color: white;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.down-paw {
+    color: white;
+    height: 200px;
+    width: 200px;
+    transform: rotate(180deg);
+    cursor: pointer;
 }
