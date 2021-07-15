@@ -6,9 +6,9 @@ span {
   border-color: #000000;
 }
 
-.header {
+header {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   height: 5rem;
   width: 100%;
