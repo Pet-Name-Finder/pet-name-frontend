@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Pack.css';
 import data from '../../Data/Names';
 //import packData from '../../Data/Pack';
-import { useParams, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Pack extends Component {
     constructor() {
