@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Home.css';
 
+import { graphql } from 'react-apollo';
+import { getPetNamesQuery} from '../../Queries/queries';
+
 class Home extends Component {
   constructor() {
     super();
@@ -11,6 +14,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="home">
         <NavLink to="/all-packs"><button data-cy="view-packs-btn" className="main-btn view-packs-btn">View Your Packs</button></NavLink>
@@ -21,4 +25,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default graphql(getPetNamesQuery)(Home);
