@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = ({ loggedIn, logoutUser }) => {
@@ -11,8 +11,10 @@ const Header = ({ loggedIn, logoutUser }) => {
         <span></span>
         <span></span>
       </div>
-      <NavLink to='/'><img src="./pet.png" alt="Pet Name Finder logo" className="logo"></img></NavLink>
-      <h1 className='header-title'>Pet Name Finder</h1>
+      <Link to='/' className="logo-link">
+        <img src="./pet.png" alt="Pet Name Finder logo" className="logo"></img>
+        <h1 className='header-title'>Pet Name Finder</h1>
+      </Link>
       <div className="button-container">
         <NavLink to='/liked-names'><button data-cy='view-liked-button' className='view-liked-button'>⭐️ View Liked Names ⭐️</button></NavLink>
         {!loggedIn &&
