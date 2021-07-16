@@ -111,7 +111,7 @@ class Pack extends Component {
             ></img>
           </section>
         )}
-        {this.state.votingDone && <p>Voting finished!</p>}
+        {this.state.votingDone && <p className="voting-finished">Voting finished!</p>}
       </main>
     );
   }
