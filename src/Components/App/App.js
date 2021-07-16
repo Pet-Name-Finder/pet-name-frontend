@@ -45,13 +45,10 @@ class App extends Component {
   }
 
   addUpVotted = (name) => {
-    //temp solution while you can move around the app while not logged in
-    if(this.state.currentUser) {
       const nameFound = this.state.currentUser.likedNames.find(userName => name === userName)
       if(!nameFound) {
         this.state.currentUser.likedNames.push(name);
       }
-    }
   }
 
   updateCurrentName = (packId) => {

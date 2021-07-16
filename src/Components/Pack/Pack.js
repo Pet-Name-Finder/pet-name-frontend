@@ -36,35 +36,21 @@ class Pack extends Component {
   };
 
   setCurrentName = (setPack) => {
-    //again temp fix while you can move around the app while not logged in
-    if (this.props.user) {
       const memberIndex = setPack.members.findIndex(
         (memeber) => memeber.userId === this.props.user.id
       );
       this.checkVote(setPack.members[memberIndex].currentName);
       this.setState({ currentName: setPack.members[memberIndex].currentName });
-    }
   };
 
   addVotePack = () => {
-    if (this.props.user) {
-      let updatePack = this.state.pack;
-      const memberIndex = updatePack.members.findIndex(
-        (memeber) => memeber.userId === this.props.user.id
+    let updatePack = this.state.pack;
+    const memberIndex = updatePack.members.findIndex(
+    (memeber) => memeber.userId === this.props.user.id
       );
       updatePack.members[memberIndex].likedNames.push(
-        this.state.names[this.state.currentName].name
-      );
-    } else {
-      //temp while we can move around the app while not logged in
-      let updatePack = this.state.pack;
-      const memberIndex = updatePack.members.findIndex(
-        (memeber) => memeber.userId === 1
-      );
-      updatePack.members[memberIndex].likedNames.push(
-        this.state.names[this.state.currentName].name
-      );
-    }
+      this.state.names[this.state.currentName].name
+    );
   };
 
   upVote = (e) => {
