@@ -69,6 +69,46 @@ class App extends Component {
     this.setState({ allPacks: updatedPacks});
   }
 
+  renderSwitch = () => {
+    return <Switch>
+      <Route exact path="/" render={() => {
+        return <Home />
+      }}
+      />
+      <Route path="/login" render={() => {
+        return <Login
+          setUser={this.setUser}
+        />
+      }}
+      />
+      <Route path="/all-packs" render={() => {
+        return <ViewPacks
+          usersPacks={this.state.usersPacks}
+        />
+      }}
+      />
+      <Route path="/liked-names" render={() => {
+        return <LikedNames
+          likedNames={this.state.likedNames}
+        />
+      }}
+      />
+      <Route path="/pack:id" render={() => {
+        return <Pack
+          user={this.state.currentUser}
+          addVoteUser={this.addUpVotted}
+          packs={this.state.allPacks}
+          updateCurrentName={this.updateCurrentName}
+        />
+      }}
+      />
+      <Route path="*" render={() => {
+        return <NotFoundPage />
+      }}
+      />
+    </Switch>
+  }
+
   render() {
     return (
       <ApolloProvider client={client}>
@@ -83,43 +123,7 @@ class App extends Component {
                 setUser={this.setUser}
               /> }
               </Route>}
-            <Switch>
-              <Route exact path="/" render={() => {
-                 return <Home />
-                }}
-              />
-              <Route path="/login" render={() => {
-                return <Login
-                  setUser={this.setUser}
-                />
-               }}
-              />
-              <Route path="/all-packs" render={() => {
-                return <ViewPacks
-                  usersPacks={this.state.usersPacks}
-                />
-                }}
-              />
-              <Route path="/liked-names" render={() => {
-                return <LikedNames
-                  likedNames={this.state.likedNames}
-                />
-                }}
-              />
-              <Route path="/pack:id" render={() => {
-                return <Pack
-                  user={this.state.currentUser}
-                  addVoteUser={this.addUpVotted}
-                  packs={this.state.allPacks}
-                  updateCurrentName={this.updateCurrentName}
-                />
-              }}
-              />
-              <Route path="*" render={() => {
-                return <NotFoundPage />
-                }}
-              />
-            </Switch>
+            {this.renderSwitch()}
           </div>
         </div>
       </ApolloProvider>
