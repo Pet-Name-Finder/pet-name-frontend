@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
@@ -78,6 +78,11 @@ class App extends Component {
             logoutUser={this.logoutUser}
           />
           <div className='app-container'>
+            {!this.state.loggedIn && <Route path="/">
+              {!this.state.loggedIn ? <Redirect to="/login" /> : <Login
+                setUser={this.setUser}
+              /> }
+              </Route>}
             <Switch>
               <Route exact path="/" render={() => {
                  return <Home />
