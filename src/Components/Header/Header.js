@@ -11,12 +11,19 @@ const Header = ({ loggedIn, logoutUser }) => {
         <span></span>
         <span></span>
       </div>
-      <Link to='/' className="logo-link">
+      {loggedIn && <NavLink  to='/'  className="logo-link">
         <img src="./pet.png" alt="Pet Name Finder logo" className="logo"></img>
         <h1 className='header-title'>Pet Name Finder</h1>
-      </Link>
+      </NavLink>}
+      {!loggedIn && <div className="logo-link">
+          <img src="./pet.png" alt="Pet Name Finder logo" className="logo"></img>
+          <h1 className='header-title'>Pet Name Finder</h1>
+        </div>}
       <div className="button-container">
-        <NavLink to='/liked-names'><button data-cy='view-liked-button' className='view-liked-button'>View ⭐️Liked⭐️ Names</button></NavLink>
+        {loggedIn && <NavLink to='/liked-names'>
+          <button data-cy='view-liked-button' className='view-liked-button'>View ⭐️Liked⭐️ Names
+          </button>
+        </NavLink>}
         {!loggedIn &&
         <NavLink to='/login'><button data-cy='login-button' className='login-button'>Login</button></NavLink>
         }
