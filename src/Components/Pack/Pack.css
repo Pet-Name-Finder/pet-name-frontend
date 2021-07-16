@@ -1,33 +1,57 @@
 .pack {
-    padding-top: 5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  padding-top: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .vote-block {
-    display: flex;
+  display: flex;
 }
 
 .current-name {
-    font-size: 64px;
-    /* padding: 1em; */
-    text-align: center;
-    min-width: 250px;
+  font-size: 64px;
+  /* padding: 1em; */
+  text-align: center;
+  min-width: 250px;
 }
 
-.up-paw {
-    color: white;
-    height: 200px;
-    width: 200px;
-    cursor: pointer;
+.up-paw,
+.down-paw {
+  color: white;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
 }
 
 .down-paw {
-    color: white;
-    height: 200px;
-    width: 200px;
-    transform: rotate(180deg);
-    cursor: pointer;
+  transform: rotate(180deg);
+  margin-top: 2em;
+}
+
+.up-paw:hover {
+  -webkit-filter: drop-shadow(10px 10px 5px rgba(0, 225, 255, 0.5));
+  filter: drop-shadow(10px 10px 5px rgba(0, 255, 42, 0.5));
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+
+.down-paw:hover {
+  -webkit-filter: drop-shadow(-10px -10px 5px rgba(255, 0, 0, 0.5));
+  filter: drop-shadow(-10px -10px 5px rgba(255, 0, 0, 0.5));
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+
+.voting-finished {
+  font-size: 48px;
 }
