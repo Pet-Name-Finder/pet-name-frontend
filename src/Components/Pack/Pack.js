@@ -4,6 +4,7 @@ import data from "../../Data/Names";
 //import packData from '../../Data/Pack';
 import { withRouter } from "react-router-dom";
 import pawThumb from "./pawthumb.png";
+import pawThumbDown from "./pawthumbdown.png";
 
 class Pack extends Component {
   constructor() {
@@ -79,7 +80,7 @@ class Pack extends Component {
         {!this.state.votingDone && (
           <section className="vote-block">
             <img
-              src={pawThumb}
+              src={pawThumbDown}
               alt="Thumbs Down Paw"
               className="down-paw"
               onClick={() => this.downVote()}
