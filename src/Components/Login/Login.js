@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import userData from '../../Data/User';
 import './Login.css';
 
@@ -29,6 +29,7 @@ class Login extends Component {
       this.clearInput();
     } else {
       this.props.setUser(foundUser);
+      <Route path="/" />
     }
   }
 
@@ -46,10 +47,10 @@ class Login extends Component {
           onChange={(event) => this.handleChange(event)}
         >
         </input>
-        <NavLink to="/"><button
+        <button
             className="login-now-btn"
             onClick={(event) => this.searchInput(event)}>🐾 Login Now! 🐾
-          </button></NavLink>
+          </button>
       </div>
     )
   }
