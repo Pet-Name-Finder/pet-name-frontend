@@ -68,13 +68,14 @@ class App extends Component {
   renderSwitch = () => {
     return <Switch>
       <Route exact path="/" render={() => {
-        return <Home />
-      }}
-      />
-      <Route path="/login" render={() => {
-        return <Login
-          setUser={this.setUser}
-        />
+        if(this.state.currentUser){
+          return <Home />
+        } else {
+          return <Login 
+            setUser={this.setUser}
+            />
+        }
+
       }}
       />
       <Route path="/voting" render={() => {
@@ -105,11 +106,6 @@ class App extends Component {
             logoutUser={this.logoutUser}
           />
           <div className='app-container'>
-            {!this.state.loggedIn && <Route path="/">
-              {!this.state.loggedIn ? <Redirect to="/login" /> : <Login
-                setUser={this.setUser}
-              /> }
-              </Route>}
             {this.renderSwitch()}
           </div>
         </div>
