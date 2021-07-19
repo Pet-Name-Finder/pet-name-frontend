@@ -79,7 +79,7 @@ class App extends Component {
       />
       <Route path="/voting" render={() => {
         return <Voting
-          addUpVotted={this.addUpVotted}
+          addVoteUser={this.addUpVotted}
         />
       }}
       />
