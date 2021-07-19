@@ -17,7 +17,7 @@ class Home extends Component {
     console.log(this.props);
     return (
       <div className="home">
-        <NavLink to="/all-packs"><button data-cy="view-packs-btn" className="main-btn view-packs-btn">Start Voting!</button></NavLink>
+        <NavLink to="/voting"><button data-cy="view-packs-btn" className="main-btn view-packs-btn">Start Voting!</button></NavLink>
       </div>
     );
   }

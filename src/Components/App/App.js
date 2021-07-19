@@ -5,8 +5,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
-import ViewPacks from '../ViewPacks/ViewPacks';
-import Pack from '../Pack/Pack';
+import Voting from '../Voting/Voting';
 import LikedNames from '../LikedNames/LikedNames';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import userData from '../../Data/User';
@@ -78,24 +77,15 @@ class App extends Component {
         />
       }}
       />
-      <Route path="/all-packs" render={() => {
-        return <ViewPacks
-          usersPacks={this.state.usersPacks}
+      <Route path="/voting" render={() => {
+        return <Voting
+          addUpVotted={this.addUpVotted}
         />
       }}
       />
       <Route path="/liked-names" render={() => {
         return <LikedNames
           likedNames={this.state.likedNames}
-        />
-      }}
-      />
-      <Route path="/pack:id" render={() => {
-        return <Pack
-          user={this.state.currentUser}
-          addVoteUser={this.addUpVotted}
-          packs={this.state.allPacks}
-          updateCurrentName={this.updateCurrentName}
         />
       }}
       />
