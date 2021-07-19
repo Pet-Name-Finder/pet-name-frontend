@@ -12,6 +12,9 @@ import userData from '../../Data/User';
 import packData from '../../Data/Pack';
 import './App.css';
 
+import { graphql } from 'react-apollo';
+import { getUserQuery } from '../../Queries/queries';
+
 const client = new ApolloClient({
   uri: "https://pet-name-finder-be.herokuapp.com/graphql"
 })
