@@ -29,16 +29,19 @@ describe('Show pages of Pet Name Finder App', () => {
     cy.get('.logo-link > .header-title').should('contain', 'Pet Name Finder')
   });
 
-  it('Should display the Login button', () => {
-    cy.get('header').find('[data-cy=login-button]').should('contain', 'Login')
+  it('Should display login input and button on main page when logged out', () => {
+    cy.get('.login').find('[data-cy=email-input]').should('be.visible')
+      .get('.login').find('[data-cy=login-now-btn]').should('contain', '🐾 Login Now! 🐾')
+
   });
 
-  it('Should display the View Liked Names button after logging in', () => {
-    cy.get('.login').find('[data-cy=email-input]').type('random@email.com')
-      .get('header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
-      .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
-  });
-  //
+  // it('Should display the View Liked Names button after logging in', () => {
+  //   cy.get('.login').find('[data-cy=email-input]').type('random@email.com')
+  //     .get('.login').find('[data-cy=login-now-btn]').click()
+  //     .get('header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
+  //     .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
+  // });
+
   // it('Should display the default page start voting button after logging in', () => {
   //   cy.get('.home').find('.view-packs-btn').should('be.visible')
   //     .get('.home').find('[data-cy=view-packs-btn]').should('contain', 'View Your Packs')
