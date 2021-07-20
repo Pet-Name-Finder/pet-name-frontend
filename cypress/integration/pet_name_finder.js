@@ -1,7 +1,4 @@
 describe('Show main view of Pet Name Finder App', () => {
-  it('Should not fail the first test', () => {
-    
-  });
 
   beforeEach(() => {
     cy.visit('http://localhost:3000')
