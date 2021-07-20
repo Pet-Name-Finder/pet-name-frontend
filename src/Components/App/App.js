@@ -6,8 +6,6 @@ import Home from '../Home/Home';
 import Voting from '../Voting/Voting';
 import LikedNames from '../LikedNames/LikedNames';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import userData from '../../Data/User';
-import packData from '../../Data/Pack';
 import './App.css';
 
 import {  withApollo } from 'react-apollo';
@@ -19,12 +17,10 @@ class App extends Component {
   constructor() {
     super();
       this.state = {
-        allUsers: userData.users,
         currentUser: null,
         likedNames: [],
         usersPacks: [],
         loggedIn: false,
-        allPacks: packData.packs
       }
   }
 
