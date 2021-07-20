@@ -46,14 +46,6 @@ class Voting extends Component {
         }
     };
 
-    setCurrentName = (setPack) => {
-        const memberIndex = setPack.members.findIndex(
-            (memeber) => memeber.userId === this.props.user.id
-        );
-        this.checkVote(setPack.members[memberIndex].currentName);
-        this.setState({ currentName: setPack.members[memberIndex].currentName });
-    };
-
     upVote = (e) => {
         this.props.addVoteUser(this.state.names[this.state.currentName].name);
         this.showNextName();
