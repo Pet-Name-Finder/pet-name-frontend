@@ -12,7 +12,7 @@ class Voting extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            names: data.names,
+            names: null,
             currentName: 0,
             votingDone: false,
         };
@@ -28,7 +28,11 @@ class Voting extends Component {
                 query: getPetNamesQuery,
                 variables: {email: this.props.email.email}
             })
-            console.log(names);
+            console.log("im here")
+            if(names){
+                console.log(names.data.user.userUnviewedNames);
+                this.setState({ names: names.data.user.userUnviewedNames });
+            }
         } catch (e) {
             console.log(e);
         }
@@ -79,7 +83,8 @@ class Voting extends Component {
                         ></img>
                         <section>
                             <p className="current-name">
-                                {this.state.names[this.state.currentName].name}
+                                {this.state.names && this.state.names[this.state.currentName].name}
+                                {!this.state.names && "Loading Names"}
                             </p>
                         </section>
                         <img
