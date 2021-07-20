@@ -4,8 +4,8 @@ import userData from '../../Data/User';
 import './Login.css';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
       this.state = {
         allUsers: userData.users,
         emailInput: ""
@@ -23,7 +23,7 @@ class Login extends Component {
   searchInput = (event) => {
     event.preventDefault();
     let foundUser = this.state.allUsers.find(user => user.email === this.state.emailInput);
-
+    this.props.checkUser(this.state.emailInput);
     if(!foundUser) {
       alert("Sorry no account found!");
       this.clearInput();
