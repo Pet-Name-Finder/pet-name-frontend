@@ -10,8 +10,8 @@ const getPetNamesQuery = gql`
 `
 
 const getUserQuery = gql `
-{
-        user(email:"boris_walker@parisian.io"){
+    query ($email: String!){
+        user(email:$email){
             id
             email
             userLikedNames{
@@ -20,7 +20,8 @@ const getUserQuery = gql `
             }
         }
     }
-`;
+`
+
 
 export { getPetNamesQuery, getUserQuery}
 
