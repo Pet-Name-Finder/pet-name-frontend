@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import userData from '../../Data/User';
 import './Login.css';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
       this.state = {
         allUsers: userData.users,
         emailInput: ""
@@ -22,14 +22,7 @@ class Login extends Component {
 
   searchInput = (event) => {
     event.preventDefault();
-    let foundUser = this.state.allUsers.find(user => user.email === this.state.emailInput);
-
-    if(!foundUser) {
-      alert("Sorry no account found!");
-      this.clearInput();
-    } else {
-      this.props.setUser(foundUser);
-    }
+    this.props.checkUser(this.state.emailInput);
   }
 
   render() {
@@ -46,10 +39,10 @@ class Login extends Component {
           onChange={(event) => this.handleChange(event)}
         >
         </input>
-        <NavLink to="/"><button
+        <button
             className="login-now-btn"
             onClick={(event) => this.searchInput(event)}>🐾 Login Now! 🐾
-          </button></NavLink>
+          </button>
       </div>
     )
   }

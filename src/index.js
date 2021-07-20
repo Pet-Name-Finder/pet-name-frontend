@@ -2,10 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Components/App/App';
 import { BrowserRouter } from 'react-router-dom';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 // import reportWebVitals from './reportWebVitals';
 import './index.css';
+const client = new ApolloClient({
+    uri: "https://pet-name-finder-be.herokuapp.com/graphql"
+})
 
-const router = (<BrowserRouter> <App /> </BrowserRouter>);
+const router = (<BrowserRouter> <ApolloProvider client={client}><App /> </ApolloProvider></BrowserRouter>);
 
 ReactDOM.render(router, document.getElementById('root'));
 

@@ -1,39 +1,32 @@
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
-import ViewPacks from '../ViewPacks/ViewPacks';
-import Pack from '../Pack/Pack';
+import Voting from '../Voting/Voting';
 import LikedNames from '../LikedNames/LikedNames';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import userData from '../../Data/User';
-import packData from '../../Data/Pack';
 import './App.css';
 
-const client = new ApolloClient({
-  uri: "https://pet-name-finder-be.herokuapp.com/graphql"
-})
+import {  withApollo } from 'react-apollo';
+import {  getUserQuery } from '../../Queries/queries';
+
+
 
 class App extends Component {
   constructor() {
     super();
       this.state = {
-        allUsers: userData.users,
         currentUser: null,
         likedNames: [],
         usersPacks: [],
         loggedIn: false,
-        allPacks: packData.packs
       }
   }
 
   setUser = (user) => {
     this.setState({ currentUser: user });
-    this.setState({ likedNames: user.likedNames });
-    this.setState({ usersPacks: user.packs });
+    this.setState({ likedNames: user.userLikedNames });
     this.setState({ loggedIn: true })
   }
 
@@ -66,36 +59,40 @@ class App extends Component {
     this.setState({ allPacks: updatedPacks});
   }
 
+  checkUser = async(typedEmail) => {
+    const test = await this.props.client.query({
+      query: getUserQuery,
+      variables: {email: typedEmail}
+    })
+    console.log(test)
+    if(test.data.user) {
+      this.setUser(test.data.user)
+    }
+  }
+
   renderSwitch = () => {
     return <Switch>
       <Route exact path="/" render={() => {
-        return <Home />
+        if(this.state.currentUser){
+          return <Home />
+        } else {
+          return <Login 
+            setUser={this.setUser}
+            checkUser={this.checkUser}
+            />
+        }
+
       }}
       />
-      <Route path="/login" render={() => {
-        return <Login
-          setUser={this.setUser}
-        />
-      }}
-      />
-      <Route path="/all-packs" render={() => {
-        return <ViewPacks
-          usersPacks={this.state.usersPacks}
+      <Route path="/voting" render={() => {
+        return <Voting
+          addVoteUser={this.addUpVotted}
         />
       }}
       />
       <Route path="/liked-names" render={() => {
         return <LikedNames
           likedNames={this.state.likedNames}
-        />
-      }}
-      />
-      <Route path="/pack:id" render={() => {
-        return <Pack
-          user={this.state.currentUser}
-          addVoteUser={this.addUpVotted}
-          packs={this.state.allPacks}
-          updateCurrentName={this.updateCurrentName}
         />
       }}
       />
@@ -108,31 +105,25 @@ class App extends Component {
 
   render() {
     return (
-      <ApolloProvider client={client}>
+      
         <div className="App">
           <Header
             loggedIn={this.state.loggedIn}
             logoutUser={this.logoutUser}
           />
           <div className='app-container'>
-            {!this.state.loggedIn && <Route path="/">
-              {!this.state.loggedIn ? <Redirect to="/login" /> : <Login
-                setUser={this.setUser}
-              /> }
-              </Route>}
             {this.renderSwitch()}
           </div>
         </div>
-      </ApolloProvider>
+
     );
   }
 }
 
-export default App;
+
+
+export default withApollo(App)
 
 
 
-// <Route path="/pack:id" render={() => {
-//   return <Pack />
-// }}
-// />
+

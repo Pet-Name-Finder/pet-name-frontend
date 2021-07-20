@@ -2,13 +2,26 @@ import {gql} from 'apollo-boost';
 
 
 const getPetNamesQuery = gql`
-    {
-        petNames {
+    query ($email: String!){
+        user(email: $email) {
+            id
             name
         }
     }
 `
 
-export { getPetNamesQuery}
+const getUserQuery = gql `
+    query ($email: String!){
+        user(email:$email){
+            id
+            email
+            userLikedNames{
+                name
+                id
+            }
+        }
+    }
+`
 
-//pack id, user id, likednames[], currentIndex
+
+export { getPetNamesQuery, getUserQuery}
