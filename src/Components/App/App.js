@@ -93,7 +93,6 @@ class App extends Component {
             checkUser={this.checkUser}
             />
         }
-
       }}
       />
       <Route path="/voting" render={() => {
