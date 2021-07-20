@@ -1,6 +1,5 @@
 import {gql} from 'apollo-boost';
 
-
 const getPetNamesQuery = gql`
     query ($email: String!){
         user(email: $email) {
