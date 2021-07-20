@@ -5,32 +5,45 @@ import { withRouter } from "react-router-dom";
 import pawThumb from "./pawthumb.png";
 import pawThumbDown from "./pawthumbdown.png";
 
-class Pack extends Component {
-    constructor() {
-        super();
+import { withApollo } from "react-apollo";
+import { getPetNamesQuery } from '../../Queries/queries';
+
+class Voting extends Component {
+    constructor(props) {
+        super(props);
         this.state = {
-            names: data.names,
+            names: null,
             currentName: 0,
             votingDone: false,
+            error: "Loading"
         };
     }
 
     componentDidMount() {
+        this.setVoteNames();
     }
 
+    setVoteNames = async() => {
+        try{
+            const names = await this.props.client.query({
+                query: getPetNamesQuery,
+                variables: {email: this.props.email.email}
+            })
+            console.log("im here")
+            if(names){
+                console.log(names.data.user.userUnviewedNames);
+                this.setState({ names: names.data.user.userUnviewedNames });
+            }
+        } catch (e) {
+            console.log(e);
+            this.setState({error: "Something went wrong"})
+        }
+    }
 
     checkVote = (currentName) => {
         if (this.state.names.length >= currentName + 1) {
             this.setState({ votingDone: false });
         }
-    };
-
-    setCurrentName = (setPack) => {
-        const memberIndex = setPack.members.findIndex(
-            (memeber) => memeber.userId === this.props.user.id
-        );
-        this.checkVote(setPack.members[memberIndex].currentName);
-        this.setState({ currentName: setPack.members[memberIndex].currentName });
     };
 
     upVote = (e) => {
@@ -64,7 +77,8 @@ class Pack extends Component {
                         ></img>
                         <section>
                             <p className="current-name">
-                                {this.state.names[this.state.currentName].name}
+                                {this.state.names && this.state.names[this.state.currentName].name}
+                                {!this.state.names && this.state.error}
                             </p>
                         </section>
                         <img
@@ -81,4 +95,4 @@ class Pack extends Component {
     }
 }
 
-export default withRouter(Pack);
+export default withApollo(Voting);

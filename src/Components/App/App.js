@@ -38,9 +38,9 @@ class App extends Component {
   }
 
   addUpVotted = (name) => {
-      const nameFound = this.state.currentUser.likedNames.find(userName => name === userName)
+      const nameFound = this.state.currentUser.userLikedNames.find(userName => name === userName)
       if(!nameFound) {
-        this.state.currentUser.likedNames.push(name);
+        this.state.currentUser.userLikedNames.push(name);
       }
   }
 
@@ -90,6 +90,7 @@ class App extends Component {
       <Route path="/voting" render={() => {
         return <Voting
           addVoteUser={this.addUpVotted}
+          email={this.state.currentUser}
         />
       }}
       />
