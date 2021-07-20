@@ -23,6 +23,8 @@ class Login extends Component {
   searchInput = (event) => {
     event.preventDefault();
     this.props.checkUser(this.state.emailInput);
+    this.clearInput();
+    
   }
 
   render() {

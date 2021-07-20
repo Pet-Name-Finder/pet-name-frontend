@@ -70,8 +70,8 @@ class App extends Component {
       }
   } catch (e) {
     console.log(e)
+    alert("Sorry no account found!")
   }
-
   }
 
   renderSwitch = () => {
