@@ -24,5 +24,3 @@ const getUserQuery = gql `
 
 
 export { getPetNamesQuery, getUserQuery}
-
-//pack id, user id, likednames[], currentIndex

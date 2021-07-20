@@ -10,10 +10,8 @@ import userData from '../../Data/User';
 import packData from '../../Data/Pack';
 import './App.css';
 
-import { graphql, withApollo } from 'react-apollo';
-import { useLazyQuery } from 'react-apollo';
-import { flowRight as compose } from 'lodash';
-import { getPetNamesQuery, getUserQuery } from '../../Queries/queries';
+import {  withApollo } from 'react-apollo';
+import {  getUserQuery } from '../../Queries/queries';
 
 
 
@@ -32,7 +30,7 @@ class App extends Component {
 
   setUser = (user) => {
     this.setState({ currentUser: user });
-    this.setState({ likedNames: user.likedNames });
+    this.setState({ likedNames: user.userLikedNames });
     this.setState({ loggedIn: true })
   }
 
@@ -126,17 +124,10 @@ class App extends Component {
   }
 }
 
-// export default compose(
-//   graphql(getPetNamesQuery, {name: "getPetNamesQuery"}),
-//   graphql(getUserQuery, { name: "getUserQuery"})
 
-// )(App);
 
 export default withApollo(App)
 
 
 
-// <Route path="/pack:id" render={() => {
-//   return <Pack />
-// }}
-// />
+
