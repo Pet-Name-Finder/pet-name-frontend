@@ -50,6 +50,11 @@
   filter: drop-shadow(10px 10px 5px rgba(255, 0, 0, 0.5));
 }
 
+.up-paw:active,
+.down-paw:active {
+  transform: scale(1);
+}
+
 .voting-finished {
   font-size: 48px;
 }
