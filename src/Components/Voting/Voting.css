@@ -14,13 +14,6 @@
   font-size: 64px;
   text-align: center;
   min-width: 350px;
-  animation-name: head;
-  animation-duration: 2s;
-}
-
-@keyframes head {
-  0% {opacity:0;}
-  100% {opacity:1;}
 }
 
 .up-paw,
@@ -60,3 +53,4 @@
 .voting-finished {
   font-size: 48px;
 }
+
