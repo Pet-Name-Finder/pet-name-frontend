@@ -47,7 +47,7 @@ class Voting extends Component {
     };
 
     upVote = (e) => {
-        this.props.addVoteUser(this.state.names[this.state.currentName].name);
+        this.props.addVoteUser(this.state.names[this.state.currentName]);
         this.showNextName();
     };
 

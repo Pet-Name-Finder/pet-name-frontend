@@ -38,6 +38,7 @@ class App extends Component {
   }
 
   addUpVotted = (name) => {
+    console.log(name)
       const nameFound = this.state.currentUser.userLikedNames.find(userName => name === userName)
       if(!nameFound) {
         this.state.currentUser.userLikedNames.push(name);

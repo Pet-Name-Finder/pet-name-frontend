@@ -14,6 +14,14 @@
   font-size: 64px;
   text-align: center;
   min-width: 250px;
+  animation-name: head;
+  animation-duration: 4s;
+}
+
+@keyframes head {
+  0% {opacity:0;}
+  25% {opacity:1;}
+  100% {opacity:1;}
 }
 
 .up-paw,
