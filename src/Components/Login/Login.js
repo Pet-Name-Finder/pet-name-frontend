@@ -43,6 +43,7 @@ class Login extends Component {
         >
         </input>
         <button
+            data-cy="login-now-btn"
             className="login-now-btn"
             onClick={(event) => this.searchInput(event)}>🐾 Login Now! 🐾
           </button>
