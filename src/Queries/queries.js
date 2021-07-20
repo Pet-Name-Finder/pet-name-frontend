@@ -2,8 +2,9 @@ import {gql} from 'apollo-boost';
 
 
 const getPetNamesQuery = gql`
-    {
-        petNames {
+    query ($email: String!){
+        user(email: $email) {
+            id
             name
         }
     }
