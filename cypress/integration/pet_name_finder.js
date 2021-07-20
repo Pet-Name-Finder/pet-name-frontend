@@ -1,6 +1,23 @@
-describe('Show main view of Pet Name Finder App', () => {
+describe('Show pages of Pet Name Finder App', () => {
 
   beforeEach(() => {
+    cy.mockGraphQL((operationName) => {
+      switch (operationName) {
+        case 'getUserQuery':
+          return {
+            test(variables) {
+              expect(variables.faction).toEqual('Users');
+            },
+            mockResult: {
+              data: {
+                getUserQuery: users
+              }
+            }
+          };
+        default:
+          return {};
+      }
+    })
     cy.visit('http://localhost:3000')
   });
 
@@ -9,25 +26,27 @@ describe('Show main view of Pet Name Finder App', () => {
   });
 
   it('Should display the title and subtitle of the page upon loading', () => {
-    cy.get('nav > .header-title').should('contain', 'Pet Name Finder')
+    cy.get('.logo-link > .header-title').should('contain', 'Pet Name Finder')
   });
 
-  it('Should display the Liked Names and Login buttons', () => {
-    cy.get('.header').find('.view-liked-button').should('be.visible')
-      .get('.header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
-      .get('.header').find('.login-button').should('be.visible')
-      .get('.header').find('[data-cy=login-button]').should('contain', 'Login')
+  it('Should display the Login button', () => {
+    cy.get('header').find('[data-cy=login-button]').should('contain', 'Login')
   });
 
-  it('Should display the default page pack buttons', () => {
-    cy.get('.home').find('.view-packs-btn').should('be.visible')
-      .get('.home').find('[data-cy=view-packs-btn]').should('contain', 'View Your Packs')
-      .get('.home').find('.start-pack-btn').should('be.visible')
-      .get('.home').find('[data-cy=start-pack-btn]').should('contain', 'Start New Pack')
-      .get('.home').find('.start-lone-btn').should('be.visible')
-      .get('.home').find('[data-cy=start-lone-btn]').should('contain', 'Start as a Lone Wolf')
+  it('Should display the View Liked Names button after logging in', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('random@email.com')
+      .get('header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
+      .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
   });
-
+  //
+  // it('Should display the default page start voting button after logging in', () => {
+  //   cy.get('.home').find('.view-packs-btn').should('be.visible')
+  //     .get('.home').find('[data-cy=view-packs-btn]').should('contain', 'View Your Packs')
+  //     .get('.home').find('.start-pack-btn').should('be.visible')
+  //     .get('.home').find('[data-cy=start-pack-btn]').should('contain', 'Start New Pack')
+  //     .get('.home').find('.start-lone-btn').should('be.visible')
+  //     .get('.home').find('[data-cy=start-lone-btn]').should('contain', 'Start as a Lone Wolf')
+  // });
 
 });
 
@@ -67,27 +86,7 @@ describe('Login and Logout of Pet Name Finder App', () => {
 
 });
 
-describe('View Pack details on Pet Name Finder App', () => {
-
-  // beforeEach(() => {
-  //   cy.fixture('mockPackData.json')
-  //   .then(mockData => {
-  //     cy.intercept('GET', 'https://', {
-  //       statusCode: 201,
-  //       delay: 100,
-  //       body: mockData
-  //     })
-  //   })
-  //   cy.visit('http://localhost:3000')
-  // });
-
-  it('Should be able to view all user\'s packs after login', () => {
-    // test for list of packs that are each a button
-  });
-
-});
-
-describe('User Interaction with namess data on Pet Name Finder App', () => {
+describe('User Interaction with names data on Pet Name Finder App', () => {
 
   // beforeEach(() => {
   //   cy.fixture('mockNamesData.json')
