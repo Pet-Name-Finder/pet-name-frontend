@@ -33,7 +33,6 @@ class App extends Component {
   setUser = (user) => {
     this.setState({ currentUser: user });
     this.setState({ likedNames: user.likedNames });
-    this.setState({ usersPacks: user.packs });
     this.setState({ loggedIn: true })
   }
 
@@ -66,11 +65,15 @@ class App extends Component {
     this.setState({ allPacks: updatedPacks});
   }
 
-  checkUser = async(email) => {
+  checkUser = async(typedEmail) => {
     const test = await this.props.client.query({
-      query: getUserQuery
+      query: getUserQuery,
+      variables: {email: typedEmail}
     })
     console.log(test)
+    if(test.data.user) {
+      this.setUser(test.data.user)
+    }
   }
 
   renderSwitch = () => {
@@ -107,7 +110,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       
         <div className="App">
