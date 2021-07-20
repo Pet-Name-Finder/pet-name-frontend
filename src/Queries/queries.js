@@ -10,7 +10,7 @@ const getPetNamesQuery = gql`
 `
 
 const getUserQuery = gql `
-    {
+{
         user(email:"boris_walker@parisian.io"){
             id
             email
@@ -20,7 +20,7 @@ const getUserQuery = gql `
             }
         }
     }
-`
+`;
 
 export { getPetNamesQuery, getUserQuery}
 
