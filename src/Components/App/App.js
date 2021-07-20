@@ -60,14 +60,17 @@ class App extends Component {
   }
 
   checkUser = async(typedEmail) => {
+    try {
     const test = await this.props.client.query({
       query: getUserQuery,
       variables: {email: typedEmail}
     })
-    console.log(test)
-    if(test.data.user) {
-      this.setUser(test.data.user)
-    }
+      if (test.data.user) {
+        this.setUser(test.data.user)
+      }
+  } catch (e) {
+    alert("Sorry no account found!")
+  }
   }
 
   renderSwitch = () => {
