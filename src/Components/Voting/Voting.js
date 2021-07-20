@@ -15,6 +15,7 @@ class Voting extends Component {
             names: null,
             currentName: 0,
             votingDone: false,
+            error: "Loading"
         };
     }
 
@@ -35,6 +36,7 @@ class Voting extends Component {
             }
         } catch (e) {
             console.log(e);
+            this.setState({error: "Something went wrong"})
         }
     }
 
@@ -84,7 +86,7 @@ class Voting extends Component {
                         <section>
                             <p className="current-name">
                                 {this.state.names && this.state.names[this.state.currentName].name}
-                                {!this.state.names && "Loading Names"}
+                                {!this.state.names && this.state.error}
                             </p>
                         </section>
                         <img
