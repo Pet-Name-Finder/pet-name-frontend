@@ -5,9 +5,12 @@ import data from "../../Data/Names";
 import { withRouter } from "react-router-dom";
 import pawThumb from "./pawthumb.png";
 
-class Pack extends Component {
-    constructor() {
-        super();
+import { withApollo } from "react-apollo";
+import { getPetNamesQuery } from '../../Queries/queries';
+
+class Voting extends Component {
+    constructor(props) {
+        super(props);
         this.state = {
             names: data.names,
             currentName: 0,
@@ -16,8 +19,20 @@ class Pack extends Component {
     }
 
     componentDidMount() {
+        this.setVoteNames();
     }
 
+    setVoteNames = async() => {
+        try{
+            const names = await this.props.client.query({
+                query: getPetNamesQuery,
+                variables: {email: this.props.email.email}
+            })
+            console.log(names);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     checkVote = (currentName) => {
         if (this.state.names.length >= currentName + 1) {
@@ -81,4 +96,4 @@ class Pack extends Component {
     }
 }
 
-export default withRouter(Pack);
+export default withApollo(Voting);
