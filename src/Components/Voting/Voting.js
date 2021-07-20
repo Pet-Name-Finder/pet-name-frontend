@@ -7,6 +7,8 @@ import pawThumbDown from "./pawthumbdown.png";
 
 import { withApollo } from "react-apollo";
 import { getPetNamesQuery } from '../../Queries/queries';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { property } from "lodash";
 
 class Voting extends Component {
     constructor(props) {
@@ -76,10 +78,18 @@ class Voting extends Component {
                             onClick={() => this.downVote()}
                         ></img>
                         <section>
-                            <p className="current-name">
-                                {this.state.names && this.state.names[this.state.currentName].name}
-                                {!this.state.names && this.state.error}
-                            </p>
+                            <TransitionGroup>
+                                <CSSTransition
+                                timeout={500}
+                                classNames="fade"
+                                key={this.state.currentName}
+                                >
+                                    <p className="current-name">
+                                        {this.state.names && this.state.names[this.state.currentName].name}
+                                        {!this.state.names && this.state.error}
+                                    </p>
+                                </CSSTransition>
+                            </TransitionGroup>
                         </section>
                         <img
                             src={pawThumb}

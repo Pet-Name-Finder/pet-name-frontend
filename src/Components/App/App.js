@@ -10,7 +10,7 @@ import './App.css';
 
 import {  withApollo } from 'react-apollo';
 import {  getUserQuery } from '../../Queries/queries';
-
+import { CSSTransition } from 'react-transition-group';
 
 
 class App extends Component {
@@ -21,6 +21,7 @@ class App extends Component {
         likedNames: [],
         usersPacks: [],
         loggedIn: false,
+        appearHome: true,
       }
   }
 
@@ -74,10 +75,17 @@ class App extends Component {
   }
   }
 
+  toggleAppear = () => {
+    this.setState({
+      appearHome: !this.state.appearHome
+    })
+  }
+
   renderSwitch = () => {
+    const {currentUser, likedNames, appearHome} = this.state;
     return <Switch>
       <Route exact path="/" render={() => {
-        if(this.state.currentUser){
+        if(currentUser){
           return <Home />
         } else {
           return <Login 
@@ -89,15 +97,21 @@ class App extends Component {
       }}
       />
       <Route path="/voting" render={() => {
-        return <Voting
-          addVoteUser={this.addUpVotted}
-          email={this.state.currentUser}
-        />
+        return <CSSTransition
+          in={appearHome}
+          appear={true}
+          timeout={300}
+          classNames="fade">
+          <Voting
+            addVoteUser={this.addUpVotted}
+            email={currentUser}
+          />
+        </CSSTransition>
       }}
       />
       <Route path="/liked-names" render={() => {
         return <LikedNames
-          likedNames={this.state.likedNames}
+          likedNames={likedNames}
         />
       }}
       />
