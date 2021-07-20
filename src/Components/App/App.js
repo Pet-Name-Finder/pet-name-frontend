@@ -69,7 +69,6 @@ class App extends Component {
         this.setUser(test.data.user)
       }
   } catch (e) {
-    console.log(e)
     alert("Sorry no account found!")
   }
   }
