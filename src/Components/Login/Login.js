@@ -24,7 +24,7 @@ class Login extends Component {
     event.preventDefault();
     this.props.checkUser(this.state.emailInput);
     this.clearInput();
-    
+
   }
 
   render() {
@@ -33,6 +33,7 @@ class Login extends Component {
         <h1 className="login-header">Pet Name Finder Login</h1>
         <label htmlFor="email">Email</label>
         <input
+          data-cy="email-input"
           className="login-input"
           id="email"
           type="email"
