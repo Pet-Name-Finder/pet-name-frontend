@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import './Voting.css';
 import data from "../../Data/Names";
-//import packData from '../../Data/Pack';
 import { withRouter } from "react-router-dom";
 import pawThumb from "./pawthumb.png";
+import pawThumbDown from "./pawthumbdown.png";
 
 import { withApollo } from "react-apollo";
 import { getPetNamesQuery } from '../../Queries/queries';
@@ -70,7 +70,7 @@ class Voting extends Component {
                 {!this.state.votingDone && (
                     <section className="vote-block">
                         <img
-                            src={pawThumb}
+                            src={pawThumbDown}
                             alt="Thumbs Down Paw"
                             className="down-paw"
                             onClick={() => this.downVote()}
