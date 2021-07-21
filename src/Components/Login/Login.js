@@ -31,6 +31,7 @@ class Login extends Component {
         <h1 className="login-header">Pet Name Finder Login</h1>
         <label htmlFor="email">Email</label>
         <input
+          data-cy="email-input"
           className="login-input"
           id="email"
           type="email"
@@ -39,6 +40,7 @@ class Login extends Component {
           onChange={(event) => this.handleChange(event)}
         ></input>
         <button
+          data-cy="login-now-btn"
           className="login-now-btn"
           onClick={(event) => this.searchInput(event)}
         >
