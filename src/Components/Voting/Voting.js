@@ -29,9 +29,8 @@ class Voting extends Component {
                 query: getPetNamesQuery,
                 variables: {email: this.props.email.email}
             })
-            console.log("im here")
             if(names){
-                console.log(names.data.user.userUnviewedNames);
+                console.log("names", names.data.user.userUnviewedNames);
                 this.setState({ names: names.data.user.userUnviewedNames });
             }
         } catch (e) {
@@ -47,7 +46,7 @@ class Voting extends Component {
     };
 
     upVote = (e) => {
-        this.props.addVoteUser(this.state.names[this.state.currentName].name);
+        this.props.addVoteUser(this.state.names[this.state.currentName]);
         this.showNextName();
     };
 
