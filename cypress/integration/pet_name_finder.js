@@ -65,4 +65,13 @@ describe('Pet Name Finder App', () => {
       .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
   });
 
+  it('Should display name and option to like or dislike name', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
+      .get('.login').find('[data-cy=login-now-btn]').click()
+      .get('.home').find('[data-cy=start-voting-btn]').click()
+      .get('.pack').find('.up-paw').should('be.visible')
+      .get('.pack').find('.down-paw').should('be.visible')
+      .get('.pack').find('.vote-block > section').should('be.visible')
+  });
+
 });
