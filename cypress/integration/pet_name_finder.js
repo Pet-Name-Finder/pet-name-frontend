@@ -32,4 +32,21 @@ describe('Pet Name Finder App', () => {
       .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
   });
 
+  it('Should not be able to login and be alerted of wrong email', () => {
+    const stub = cy.stub()
+
+    // cy.on ('window:alert', stub)
+    // cy.get('.login').find('[data-cy=email-input]').type('bored_runner@america.co')
+    //   .get('.login').find('[data-cy=login-now-btn]').click()
+    //   .then(() => {
+    //     expect(stub.getCall(0)).to.be.calledWith('Sorry no account found!')
+    //   })
+  });
+
+  it('Should display logout instead of login button after successful login', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
+      .get('.login').find('[data-cy=login-now-btn]').click()
+      .get('header').find('[data-cy=logout-button]').should('contain', "Logout")
+  });
+
 });
