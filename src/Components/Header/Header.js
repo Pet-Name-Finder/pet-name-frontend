@@ -12,7 +12,7 @@ const Header = ({ loggedIn, logoutUser }) => {
             alt="Pet Name Finder logo"
             className="logo"
           ></img>
-          <h1 className="header-title">Pet Name Finder</h1>
+          <h1 data-cy='header-title' className="header-title">Pet Name Finder</h1>
         </NavLink>
       )}
       {!loggedIn && (
@@ -22,7 +22,7 @@ const Header = ({ loggedIn, logoutUser }) => {
             alt="Pet Name Finder logo"
             className="logo"
           ></img>
-          <h1 className="header-title">Pet Name Finder</h1>
+          <h1 data-cy='header-title' className="header-title">Pet Name Finder</h1>
         </div>
       )}
       <div className="button-container">
