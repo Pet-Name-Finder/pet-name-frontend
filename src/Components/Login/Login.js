@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, useHistory } from 'react-router-dom';
 import userData from '../../Data/User';
 import './Login.css';
 
