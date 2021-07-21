@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <div className="home">
         <NavLink to="/voting">
-          <button data-cy="view-packs-btn" className="main-btn view-packs-btn">
+          <button data-cy="start-voting-btn" className="main-btn view-packs-btn">
             Start Voting!
           </button>
         </NavLink>
