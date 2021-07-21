@@ -3,7 +3,7 @@ import React from "react";
 
 const LikedNames = ({ likedNames }) => {
   const mappedNames = likedNames.map((name) => {
-    return <li key={name.id}>{name.name}</li>;
+    return <li key={name.id} data-cy="name">{name.name}</li>;
   });
 
   return (
