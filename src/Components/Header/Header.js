@@ -13,11 +13,11 @@ const Header = ({ loggedIn, logoutUser }) => {
       </div>
       {loggedIn && <NavLink  to='/'  className="logo-link">
         <img src="./pet.png" alt="Pet Name Finder logo" className="logo"></img>
-        <h1 className='header-title'>Pet Name Finder</h1>
+        <h1 data-cy='header-title' className='header-title'>Pet Name Finder</h1>
       </NavLink>}
       {!loggedIn && <div className="logo-link">
           <img src="./pet.png" alt="Pet Name Finder logo" className="logo"></img>
-          <h1 className='header-title'>Pet Name Finder</h1>
+          <h1 data-cy='header-title' className='header-title'>Pet Name Finder</h1>
         </div>}
       <div className="button-container">
         {loggedIn && <NavLink to='/liked-names'>
