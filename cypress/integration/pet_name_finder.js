@@ -3,26 +3,10 @@ import { aliasQuery } from '../utils/graphql-test-utils'
 describe('Show pages of Pet Name Finder App', () => {
 
   beforeEach(() => {
-  //   cy.mockGraphQL((operationName) => {
-  //     switch (operationName) {
-  //       case 'getUserQuery':
-  //         return {
-  //           test(variables) {
-  //             expect(variables.faction).toEqual('Users');
-  //           },
-  //           mockResult: {
-  //             data: {
-  //               mockUserData: users
-  //             }
-  //           }
-  //         };
-  //       default:
-  //         return {};
-  //     }
-  //   })
+
     cy.intercept('POST', 'http://localhost:3000/graphql', (req) => {
-      // Queries
       aliasQuery(req, 'getUserQuery')
+      aliasQuery(req, 'getPetNamesQuery')
     })
 
     cy.visit('http://localhost:3000')
