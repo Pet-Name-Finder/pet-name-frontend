@@ -28,7 +28,7 @@ html {
 }
 
 .fade-exit {
-  opacity: 0;
+  opacity: 1;
 }
 
 .fade-exit.fade-exit-active {
