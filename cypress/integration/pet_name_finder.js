@@ -50,9 +50,12 @@ describe('Show pages of Pet Name Finder App', () => {
       .get('header').find('[data-cy=logout-button]').should('contain', "Logout")
   });
 
-  it('Should be able to logout', () => {
-    // After click => currentUser state is changed
-    // After logout => Button goes back to Login
+  it('Should display login page after logging out', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
+      .get('.login').find('[data-cy=login-now-btn]').click()
+      .get('header').find('[data-cy=logout-button]').click()
+      .get('.login').find('[data-cy=email-input]').should('be.visible')
+      .get('.login').find('[data-cy=login-now-btn]').should('be.visible')
   });
 
   it('Should be able to choose names', () => {
