@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./Pack.css";
 import data from "../../Data/Names";
-//import packData from '../../Data/Pack';
 import { withRouter } from "react-router-dom";
 import pawThumb from "./pawthumb.png";
+import pawThumbDown from "./pawthumbdown.png";
 
 class Pack extends Component {
   constructor() {
@@ -22,7 +22,6 @@ class Pack extends Component {
 
   setPack = () => {
     const id = parseInt(this.props.match.params.id);
-    // const setPack = packData.packs.find(pack => pack.id === id);
     const setPack = this.props.packs.find((pack) => pack.id === id);
     this.setCurrentName(setPack);
     this.setState({ pack: setPack });
@@ -36,19 +35,19 @@ class Pack extends Component {
   };
 
   setCurrentName = (setPack) => {
-      const memberIndex = setPack.members.findIndex(
-        (memeber) => memeber.userId === this.props.user.id
-      );
-      this.checkVote(setPack.members[memberIndex].currentName);
-      this.setState({ currentName: setPack.members[memberIndex].currentName });
+    const memberIndex = setPack.members.findIndex(
+      (memeber) => memeber.userId === this.props.user.id
+    );
+    this.checkVote(setPack.members[memberIndex].currentName);
+    this.setState({ currentName: setPack.members[memberIndex].currentName });
   };
 
   addVotePack = () => {
     let updatePack = this.state.pack;
     const memberIndex = updatePack.members.findIndex(
-    (memeber) => memeber.userId === this.props.user.id
-      );
-      updatePack.members[memberIndex].likedNames.push(
+      (memeber) => memeber.userId === this.props.user.id
+    );
+    updatePack.members[memberIndex].likedNames.push(
       this.state.names[this.state.currentName].name
     );
   };
@@ -79,7 +78,7 @@ class Pack extends Component {
         {!this.state.votingDone && (
           <section className="vote-block">
             <img
-              src={pawThumb}
+              src={pawThumbDown}
               alt="Thumbs Down Paw"
               className="down-paw"
               onClick={() => this.downVote()}
@@ -97,7 +96,9 @@ class Pack extends Component {
             ></img>
           </section>
         )}
-        {this.state.votingDone && <p className="voting-finished">Voting finished!</p>}
+        {this.state.votingDone && (
+          <p className="voting-finished">Voting finished!</p>
+        )}
       </main>
     );
   }

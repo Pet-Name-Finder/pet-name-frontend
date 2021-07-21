@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
-import { Route, useHistory } from 'react-router-dom';
-import userData from '../../Data/User';
-import './Login.css';
+import React, { Component } from "react";
+import userData from "../../Data/User";
+import "./Login.css";
 
 class Login extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-        allUsers: userData.users,
-        emailInput: ""
-      }
+    this.state = {
+      allUsers: userData.users,
+      emailInput: "",
+    };
   }
 
   handleChange = (event) => {
-    this.setState({ emailInput: event.target.value })
-  }
+    this.setState({ emailInput: event.target.value });
+  };
 
   clearInput = () => {
-    this.setState({ emailInput: "" })
-  }
+    this.setState({ emailInput: "" });
+  };
 
   searchInput = (event) => {
     event.preventDefault();
     this.props.checkUser(this.state.emailInput);
     this.clearInput();
-
-  }
+  };
 
   render() {
     return (
@@ -40,15 +38,16 @@ class Login extends Component {
           placeholder="Email"
           value={this.state.searchInput}
           onChange={(event) => this.handleChange(event)}
-        >
-        </input>
+        ></input>
         <button
-            data-cy="login-now-btn"
-            className="login-now-btn"
-            onClick={(event) => this.searchInput(event)}>🐾 Login Now! 🐾
-          </button>
+          data-cy="login-now-btn"
+          className="login-now-btn"
+          onClick={(event) => this.searchInput(event)}
+        >
+          🐾 Login Now! 🐾
+        </button>
       </div>
-    )
+    );
   }
 }
 

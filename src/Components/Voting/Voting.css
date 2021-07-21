@@ -12,9 +12,8 @@
 
 .current-name {
   font-size: 64px;
-  /* padding: 1em; */
   text-align: center;
-  min-width: 250px;
+  min-width: 350px;
 }
 
 .up-paw,
@@ -30,28 +29,33 @@
 }
 
 .down-paw {
-  transform: rotate(180deg);
   margin-top: 2em;
 }
 
-.up-paw:hover {
-  -webkit-filter: drop-shadow(10px 10px 5px rgba(0, 225, 255, 0.5));
+.up-paw:hover,
+.down-paw:hover {
+  -webkit-filter: drop-shadow(10px 10px 5px rgba(0, 225, 42, 0.5));
   filter: drop-shadow(10px 10px 5px rgba(0, 255, 42, 0.5));
   -moz-transition: all 0.15s ease-in;
   -o-transition: all 0.15s ease-in;
   -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .down-paw:hover {
-  -webkit-filter: drop-shadow(-10px -10px 5px rgba(255, 0, 0, 0.5));
-  filter: drop-shadow(-10px -10px 5px rgba(255, 0, 0, 0.5));
-  -moz-transition: all 0.15s ease-in;
-  -o-transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
+  -webkit-filter: drop-shadow(10px 10px 5px rgba(255, 0, 0, 0.5));
+  filter: drop-shadow(10px 10px 5px rgba(255, 0, 0, 0.5));
+}
+
+.up-paw:active,
+.down-paw:active {
+  transform: scale(1);
 }
 
 .voting-finished {
   font-size: 48px;
 }
+

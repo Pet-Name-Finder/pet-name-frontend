@@ -1,5 +1,5 @@
-import './LikedNames.css';
-import React from 'react';
+import "./LikedNames.css";
+import React from "react";
 
 const LikedNames = ({ likedNames }) => {
   const mappedNames = likedNames.map((name) => {
@@ -11,11 +11,9 @@ const LikedNames = ({ likedNames }) => {
   return (
     <div className="liked-names">
       <h2>Your Liked Names:</h2>
-      <ul className="bullet-container">
-        {mappedNames}
-      </ul>
+      <ul className="bullet-container">{mappedNames}</ul>
     </div>
-  )
-}
+  );
+};
 
 export default LikedNames;
