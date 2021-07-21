@@ -1,6 +1,8 @@
-describe('Show main view of Pet Name Finder App', () => {
+import { aliasQuery } from '../utils/graphql-test-utils'
+
+describe('Pet Name Finder App', () => {
   it('Should not fail the first test', () => {
-    
+
   });
 
   beforeEach(() => {
