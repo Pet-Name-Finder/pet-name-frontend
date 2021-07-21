@@ -8,7 +8,7 @@ describe('Pet Name Finder App', () => {
       aliasQuery(req, 'getUserQuery')
       aliasQuery(req, 'getPetNamesQuery')
     })
-    
+
     cy.visit('http://localhost:3000')
   });
 
@@ -17,14 +17,12 @@ describe('Pet Name Finder App', () => {
   });
 
   it('Should display the title and subtitle of the page upon loading', () => {
-    cy.get('nav > .header-title').should('contain', 'Pet Name Finder')
+    cy.get('.logo-link > .header-title').should('contain', 'Pet Name Finder')
   });
 
-  it('Should display the Liked Names and Login buttons', () => {
-    cy.get('.header').find('.view-liked-button').should('be.visible')
-      .get('.header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
-      .get('.header').find('.login-button').should('be.visible')
-      .get('.header').find('[data-cy=login-button]').should('contain', 'Login')
+  it('Should display login input and button on main page when logged out', () => {
+   cy.get('.login').find('[data-cy=email-input]').should('be.visible')
+     .get('.login').find('[data-cy=login-now-btn]').should('contain', '🐾 Login Now! 🐾')
   });
 
   it('Should display the default page pack buttons', () => {
