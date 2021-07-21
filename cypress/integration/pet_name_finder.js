@@ -58,6 +58,14 @@ describe('Show pages of Pet Name Finder App', () => {
       .get('.login').find('[data-cy=login-now-btn]').should('be.visible')
   });
 
+  it('Should display Home page after clicking app name', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
+      .get('.login').find('[data-cy=login-now-btn]').click()
+      .get('header').find('[data-cy=view-liked-button]').click()
+      .get('header').find('[data-cy=header-title]').click()
+      .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
+  });
+
   it('Should be able to choose names', () => {
     // test for ability to like a name
     // test that the liked name is added to user's list
