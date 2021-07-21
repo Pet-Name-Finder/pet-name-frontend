@@ -75,13 +75,30 @@ describe('Show pages of Pet Name Finder App', () => {
       .get('.pack').find('.vote-block > section').should('be.visible')
   });
 
+  // Buggy from here down
   it('Should be able to like a name', () => {
     cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
       .get('.login').find('[data-cy=login-now-btn]').click()
       .get('.home').find('[data-cy=start-voting-btn]').click()
-      .get('.pack').find('.up-paw').click()
+      .get('.vote-block').find('[data-cy=up-paw]').click()
       .get('header').find('[data-cy=view-liked-button]').click()
-      .get('.liked-names').find('[data-cy=name]').should('have.length', 6)
+  });
+
+  it('Should be able to dislike a name', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
+      .get('.login').find('[data-cy=login-now-btn]').click()
+      .get('.home').find('[data-cy=start-voting-btn]').click()
+      .get('.vote-block').find('[data-cy=down-paw]').click()
+  });
+
+  it('Should notify user when voting is finished', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
+      .get('.login').find('[data-cy=login-now-btn]').click()
+      .get('.home').find('[data-cy=start-voting-btn]').click()
+      .get('.vote-block').find('[data-cy=up-paw]').click()
+      .get('.vote-block').find('[data-cy=up-paw]').click()
+      .get('.vote-block').find('[data-cy=up-paw]').click()
+      .get('.vote-block > section').find('.current-name').should('contain', "Voting finished!")
   });
 
 });
