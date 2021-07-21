@@ -1,11 +1,14 @@
 import { aliasQuery } from '../utils/graphql-test-utils'
 
 describe('Pet Name Finder App', () => {
-  it('Should not fail the first test', () => {
-
-  });
 
   beforeEach(() => {
+
+    cy.intercept('POST', 'http://localhost:3000/graphql', (req) => {
+      aliasQuery(req, 'getUserQuery')
+      aliasQuery(req, 'getPetNamesQuery')
+    })
+    
     cy.visit('http://localhost:3000')
   });
 
