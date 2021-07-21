@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import "./Voting.css";
-import data from "../../Data/Names";
-import { withRouter } from "react-router-dom";
 import pawThumb from "./pawthumb.png";
 import pawThumbDown from "./pawthumbdown.png";
-
 import { withApollo } from "react-apollo";
 import { getPetNamesQuery } from "../../Queries/queries";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { property } from "lodash";
 
 class Voting extends Component {
   constructor(props) {
@@ -31,13 +27,10 @@ class Voting extends Component {
         query: getPetNamesQuery,
         variables: { email: this.props.email.email },
       });
-      console.log("im here");
       if (names) {
-        console.log(names.data.user.userUnviewedNames);
         this.setState({ names: names.data.user.userUnviewedNames });
       }
     } catch (e) {
-      console.log(e);
       this.setState({ error: "Something went wrong" });
     }
   };
