@@ -1,23 +1,30 @@
+import { aliasQuery } from '../utils/graphql-test-utils'
+
 describe('Show pages of Pet Name Finder App', () => {
 
   beforeEach(() => {
-    cy.mockGraphQL((operationName) => {
-      switch (operationName) {
-        case 'getUserQuery':
-          return {
-            test(variables) {
-              expect(variables.faction).toEqual('Users');
-            },
-            mockResult: {
-              data: {
-                getUserQuery: users
-              }
-            }
-          };
-        default:
-          return {};
-      }
+  //   cy.mockGraphQL((operationName) => {
+  //     switch (operationName) {
+  //       case 'getUserQuery':
+  //         return {
+  //           test(variables) {
+  //             expect(variables.faction).toEqual('Users');
+  //           },
+  //           mockResult: {
+  //             data: {
+  //               mockUserData: users
+  //             }
+  //           }
+  //         };
+  //       default:
+  //         return {};
+  //     }
+  //   })
+    cy.intercept('POST', 'http://localhost:3000/graphql', (req) => {
+      // Queries
+      aliasQuery(req, 'getUserQuery')
     })
+
     cy.visit('http://localhost:3000')
   });
 
@@ -35,12 +42,12 @@ describe('Show pages of Pet Name Finder App', () => {
 
   });
 
-  // it('Should display the View Liked Names button after logging in', () => {
-  //   cy.get('.login').find('[data-cy=email-input]').type('random@email.com')
-  //     .get('.login').find('[data-cy=login-now-btn]').click()
-  //     .get('header').find('[data-cy=view-liked-button]').should('contain', '⭐️ View Liked Names ⭐️')
-  //     .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
-  // });
+  it('Should display the Home Page after logging in', () => {
+    cy.get('.login').find('[data-cy=email-input]').type('boris_walker@parisian.io')
+      .get('.login').find('[data-cy=login-now-btn]').click()
+      .get('header').find('[data-cy=view-liked-button]').should('be.visible')
+      .get('.home').find('[data-cy=start-voting-btn]').should('contain', 'Start Voting!')
+  });
 
   // it('Should display the default page start voting button after logging in', () => {
   //   cy.get('.home').find('.view-packs-btn').should('be.visible')
