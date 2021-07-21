@@ -49,7 +49,7 @@ class App extends Component {
       if(pack.id === packId) {
         pack.members.map(member => {
           if(member.userId === this.state.currentUser.id) {
-            member.currentName = member.currentName + 1; 
+            member.currentName = member.currentName + 1;
           }
           return member
         })
@@ -79,7 +79,7 @@ class App extends Component {
         if(this.state.currentUser){
           return <Home />
         } else {
-          return <Login 
+          return <Login
             setUser={this.setUser}
             checkUser={this.checkUser}
             />
@@ -109,7 +109,7 @@ class App extends Component {
 
   render() {
     return (
-      
+
         <div className="App">
           <Header
             loggedIn={this.state.loggedIn}
@@ -127,7 +127,3 @@ class App extends Component {
 
 
 export default withApollo(App)
-
-
-
-
