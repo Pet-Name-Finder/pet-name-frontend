@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import './Home.css';
-
-
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import "./Home.css";
 
 class Home extends Component {
   constructor() {
     super();
-      this.state = {
-
-      }
+    this.state = {};
   }
 
   render() {
-    
     return (
       <div className="home">
-        <NavLink to="/voting"><button data-cy="view-packs-btn" className="main-btn view-packs-btn">Start Voting!</button></NavLink>
+        <NavLink to="/voting">
+          <button data-cy="view-packs-btn" className="main-btn view-packs-btn">
+            Start Voting!
+          </button>
+        </NavLink>
       </div>
     );
   }
 }
 
-export default (Home);
+export default Home;
