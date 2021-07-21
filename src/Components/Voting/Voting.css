@@ -72,7 +72,7 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 770px) {
   .current-name {
     font-size: 36px;
     min-width: 180px;
