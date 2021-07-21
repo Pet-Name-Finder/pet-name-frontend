@@ -59,3 +59,14 @@
   font-size: 48px;
 }
 
+@media screen and (max-width: 1000px) {
+  .current-name {
+    font-size: 48px;
+  }
+  
+  .up-paw,
+  .down-paw {
+    height: 150px;
+    width: 150px;
+  }
+}
