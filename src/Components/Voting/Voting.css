@@ -62,11 +62,25 @@
 @media screen and (max-width: 1000px) {
   .current-name {
     font-size: 48px;
+    min-width: 250px;
   }
   
   .up-paw,
   .down-paw {
     height: 150px;
     width: 150px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .current-name {
+    font-size: 36px;
+    min-width: 180px;
+  }
+  
+  .up-paw,
+  .down-paw {
+    height: 100px;
+    width: 100px;
   }
 }
