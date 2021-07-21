@@ -67,6 +67,7 @@ class Voting extends Component {
             <img
               src={pawThumbDown}
               alt="Thumbs Down Paw"
+              data-cy="down-paw"
               className="down-paw"
               onClick={() => this.downVote()}
             ></img>
@@ -88,6 +89,7 @@ class Voting extends Component {
             <img
               src={pawThumb}
               alt="Thumbs Up Paw"
+              data-cy="up-paw"
               className="up-paw"
               onClick={() => this.upVote()}
             ></img>
