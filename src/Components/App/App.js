@@ -7,7 +7,6 @@ import Voting from "../Voting/Voting";
 import LikedNames from "../LikedNames/LikedNames";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import "./App.css";
-
 import { withApollo } from "react-apollo";
 import { getUserQuery } from "../../Queries/queries";
 import { CSSTransition } from "react-transition-group";
