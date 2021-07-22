@@ -11,7 +11,7 @@ An app designed to help you brainstorm pet names!
 ## Back End Repository
 * [Pet Name Finder Back End](https://github.com/Pet-Name-Finder/petnames_be)
 ## Technologies Used
-* React 
+* React
 * React Router for page navigation
 * Cypress for end-to-end testing
 * GraphQL for Queries
@@ -26,7 +26,7 @@ An app designed to help you brainstorm pet names!
 
 ![GIF demonstrating how to use Pet Name Finder](https://media.giphy.com/media/59wksqpX9NS63v5Z4m/giphy.gif)
 
-## Wireframe: 
+## Wireframe:
 
 ![Wireframe of the app](https://user-images.githubusercontent.com/76700555/126546975-dcf70dbb-7722-4100-8cd9-22c6e85fbb90.png)
 
