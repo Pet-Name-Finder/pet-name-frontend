@@ -1,4 +1,4 @@
-const mockNamesData = [
+[
   {
       "id": 1,
       "name": "Frank"
