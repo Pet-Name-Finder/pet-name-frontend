@@ -13,7 +13,8 @@ class Voting extends Component {
       names: null,
       currentName: 0,
       votingDone: false,
-      error: "Loading",
+      isLoading: true,
+      error: null,
     };
   }
 
@@ -28,6 +29,8 @@ class Voting extends Component {
         variables: { email: this.props.email.email },
       });
       if (names) {
+        console.log(names)
+        this.setState({ isLoading: false });
         this.setState({ names: names.data.user.userUnviewedNames });
       }
     } catch (e) {
@@ -62,7 +65,21 @@ class Voting extends Component {
   render() {
     return (
       <main className="pack">
-        {!this.state.votingDone && (
+        {this.state.error && (
+          <section className="vote-block">
+            <p className="current-name">
+              {this.state.error}
+            </p>
+          </section>
+        )}
+        {!this.state.error && !this.state.names && this.state.isLoading && (
+          <section className="vote-block">
+            <p className="current-name">
+              {this.state.isLoading}
+            </p>
+          </section>
+        )}
+        {!this.state.error && this.state.names && !this.state.votingDone && (
           <section className="vote-block">
             <img
               src={pawThumbDown}
@@ -81,7 +98,6 @@ class Voting extends Component {
                   <p className="current-name">
                     {this.state.names &&
                       this.state.names[this.state.currentName].name}
-                    {!this.state.names && this.state.error}
                   </p>
                 </CSSTransition>
               </TransitionGroup>
@@ -95,7 +111,7 @@ class Voting extends Component {
             ></img>
           </section>
         )}
-        {this.state.votingDone && (
+        {!this.state.error && this.state.votingDone && (
           <p className="voting-finished">Voting finished!</p>
         )}
       </main>

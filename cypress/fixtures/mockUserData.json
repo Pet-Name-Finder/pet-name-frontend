@@ -1,0 +1,14 @@
+{
+    "email": "test_user@email.com",
+    "id": 1,
+    "likedNames": [
+        {
+            "id": 15,
+            "name": "Blue"
+        },
+        {
+            "id": 14,
+            "name": "Gouda"
+        }
+    ]
+}
