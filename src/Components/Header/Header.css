@@ -78,9 +78,34 @@ header {
 .login-button:hover {
   background-color: #1F5859;
 }
+@media screen and (max-width: 1000px) {
+  header {
+    justify-content: flex-start;
+  }
+}
 
-@media screen and (min-width: 480px) {
-  .hamburger-menu {
-    display: none;
+@media screen and (max-width: 700px) {
+  .header-title {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    height: 4rem;
+  }
+
+  .view-liked-button,
+  .login-button {
+    font-size: 0.7em;
+  }
+
+  .button-container {
+    top: 1.5rem;
+    right: 1rem;
+  }
+
+  @media screen and (max-width: 520px) {
+    .header-title {
+      display: none;
+    }
   }
 }
