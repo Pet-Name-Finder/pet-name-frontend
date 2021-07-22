@@ -29,7 +29,6 @@ class Voting extends Component {
         variables: { email: this.props.email.email },
       });
       if (names) {
-        console.log(names)
         this.setState({ isLoading: false });
         this.setState({ names: names.data.user.userUnviewedNames });
       }
